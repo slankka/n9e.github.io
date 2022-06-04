@@ -35,7 +35,7 @@
 
 [[main]]
   name = "FAQ"
-  url = "https://github.com/ccfos/nightingale/wiki/faq"
+  url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki"
   weight = 15
 
 # [[main]]
