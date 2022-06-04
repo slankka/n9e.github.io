@@ -1,0 +1,61 @@
+{{ define "main" }}
+<section class="section container-fluid mt-n3 pb-3">
+  <div class="row justify-content-center">
+    <div class="col-lg-12 text-center">
+      <h1 class="mt-0">{{ .Title }}</h1>
+    </div>
+    <div class="col-lg-9 col-xl-8 text-center">
+      <p class="lead">{{ .Params.lead | safeHTML }}</p>
+      <a class="btn btn-primary btn-lg px-4 mb-2" href="/docs/{{ if .Site.Params.options.docsVersioning }}{{ .Site.Params.docsVersion }}/{{ end }}prologue/introduction/" role="button">立即开始</a>
+      <p class="meta">Open-source Apache-2.0 Licensed. <a href="https://github.com/ccfos/nightingale">GitHub v5.8.0</a></p>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ define "sidebar-prefooter" }}
+  {{ if eq $.Site.Language.LanguageName "English" }}
+  <section class="section section-sm">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-5">
+          <h2 class="h4">开箱即用</h2>
+          <p>内置监控大盘、快捷视图、告警规则，导入即可快速使用，广大社区用户也在持续完善，将最佳实践内置于产品</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">兼容并包</h2>
+          <p>可以和 Prometheus、Categraf、Telegraf、Datadog-Agent、VictoriaMetrics、M3DB 等无缝集成</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">高性能 ⚡️</h2>
+          <p>得益于新时代的高性能时序库，和夜莺引擎侧优秀的设计，单机轻松扛起百万Series，节省企业大量成本</p>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-5">
+          <h2 class="h4">水平扩展</h2>
+          <p>服务端组件均可水平扩展，无单点风险；亦可将时序库、告警引擎下沉到各个机房，从地域、业务层拆分</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">经受打磨</h2>
+          <p>夜莺监控已经在上千家企业部署落地，经受了生产实践打磨，有些企业的夜莺集群达几十台机器，处理十亿级Series</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">社区活跃</h2>
+          <p>托管于中国计算机学会开源发展委员会，有<a target="_blank" href="https://flashcat.cloud/">快猫星云</a>商业公司持续投入，夜莺项目具有持久生命力</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+{{ end }}
+
+{{ define "sidebar-footer" }}
+<section class="section section-sm container-fluid">
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-9">
+      {{- .Content -}}
+    </div>
+  </div>
+</section>
+{{ end }}
