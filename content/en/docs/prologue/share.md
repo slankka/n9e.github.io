@@ -46,6 +46,7 @@ toc: true
 - [RocketMQ简单监控的实现](https://mp.weixin.qq.com/s/CyYdss6kFlo9qRuGfM_OlA) - by 柴今栋@艾派
 - [一文说透MySQL监控，使用Prometheus生态的Exporter](https://mp.weixin.qq.com/s/gyqXh1ZGnoOC6jg6xOp-IA)
 - [Vsphere-monitor数据上报夜莺V5监控](https://t.zsxq.com/feqF2JE)
+- [记n9e_server活跃告警 聚合规则写法](https://blog.csdn.net/woshi_1245/article/details/125218828) - 肖君
 
 ## 夜莺动态
 - [Categraf - 夜莺监控发布新轮子](https://mp.weixin.qq.com/s/IrOficG0Xdrc7F3bONKwHg) - 秦晓辉@快猫星云

@@ -48,7 +48,7 @@ max_idle_conns_per_host = 100
 
 ## 采集插件
 
-Categraf 每个采集器，都有一个配置目录，在 conf 下面，以 `input.` 打头，如果某个插件不行启用，就把插件配置目录改个名字，别让它是 `input.` 打头即可，比如 docker 不想采集，可以 `mv input.docker bak.input.docker` 就可以了。当然了，也并不是说只要有 input.xx 目录，就会采集对应的内容，比如 MySQL 监控插件，如果想采集其数据，至少要在 `conf/input.mysql/mysql.toml` 中配置要采集的数据库实例的连接地址。
+Categraf 每个采集器，都有一个配置目录，在 conf 下面，以 `input.` 打头，如果某个插件不想启用，就把插件配置目录改个名字，别让它是 `input.` 打头即可，比如 docker 不想采集，可以 `mv input.docker bak.input.docker` 就可以了。当然了，也并不是说只要有 input.xx 目录，就会采集对应的内容，比如 MySQL 监控插件，如果想采集其数据，至少要在 `conf/input.mysql/mysql.toml` 中配置要采集的数据库实例的连接地址。
 
 每个采集插件的配置文件，都给了很详尽的注释，阅读这些注释，基本就了解如何去配置各个插件了。另外，有些采集插件还会同步提供夜莺监控大盘JSON和告警规则JSON，大家可以直接导入使用，在[代码的 inputs 目录](https://www.gitlink.org.cn/flashcat/categraf/tree/main/inputs)，机器的监控大盘比较特殊，放到了 system 目录，没有分散在 cpu、mem、disk 等目录。
 
