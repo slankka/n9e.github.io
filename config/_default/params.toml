@@ -54,10 +54,10 @@ lqipWidth = "20x"
 smallLimit = "300"
 
 # Footer
-footer = "&copy; CCF·Nightingale 2022"
+footer = "&copy; 2022 CCF·Nightingale, all rights reserved."
 
 # Feed
-copyRight = "Copyright (c) 2022 CCF·Nightingale"
+copyRight = "© 2022 CCF·Nightingale, all rights reserved."
 
 # Alert
 alert = false
