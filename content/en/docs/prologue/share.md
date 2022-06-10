@@ -31,3 +31,4 @@ toc: true
 - [使用pg作为数据库替换MySQL](https://t.zsxq.com/MnE6IA2)
 - [Telegraf 配置文件，告警规则，看图大盘分享](https://t.zsxq.com/02eYfie6q) - 映客-郑富强
 - [telegraf采集Nacos](https://articles.zsxq.com/id_dm7ri6vrlbte.html) - 郭什么磊°
+- [记n9e_server活跃告警 聚合规则写法](https://blog.csdn.net/woshi_1245/article/details/125218828) - 肖君
