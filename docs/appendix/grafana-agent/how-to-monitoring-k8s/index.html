@@ -1,0 +1,353 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-500.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><link rel=stylesheet href=https://n9e.github.io/main.6952874f811c7eec4163f2d6da1f7f65f957628144426ecc80f9dd3f0ac121e688f10abf08984a9ef75586a5ab05f68f9db33ae97978f028c15f3602cfc85c0e.css integrity="sha512-aVKHT4EcfuxBY/LW2h9/ZflXYoFEQm7MgPndPwrBIeaI8Qq/CJhKnvdVhqWrBfaPnbM66Xl48CjBXzYCz8hcDg==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><meta name=robots content="index, follow"><meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><title>监控K8s - Nightingale</title><meta name=description content="Acknowledgement: grafana-agent is powered by Grafana Agent. Grafana Agent is a lightweight telemetry collector based on Prometheus that only performs its scraping and remote_write functions. Agent can also collect metrics, logs, and traces for storage in Grafana Cloud and Grafana Enterprise, as well as OSS deployments of Loki (logs), and Tempo (traces), Prometheus (metrics), and Cortex (metrics). Grafana Agent also contains several integrations (embedded metrics exporters) like node-exporter, a MySQL exporter, and many more."><link rel=canonical href=https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="监控K8s"><meta property="og:description" content="Acknowledgement: grafana-agent is powered by Grafana Agent. Grafana Agent is a lightweight telemetry collector based on Prometheus that only performs its scraping and remote_write functions. Agent can also collect metrics, logs, and traces for storage in Grafana Cloud and Grafana Enterprise, as well as OSS deployments of Loki (logs), and Tempo (traces), Prometheus (metrics), and Cortex (metrics). Grafana Agent also contains several integrations (embedded metrics exporters) like node-exporter, a MySQL exporter, and many more."><meta property="og:url" content="https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/"><meta property="og:site_name" content="Nightingale"><meta property="article:published_time" content="2020-10-06T08:48:45+00:00"><meta property="article:modified_time" content="2022-06-14T23:18:16+08:00"><meta property="og:image" content="https://n9e.github.io/doks.png"><meta property="og:image:alt" content="Nightingale"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@ulricqin"><meta name=twitter:creator content="@henkverlinde"><meta name=twitter:title content="监控K8s"><meta name=twitter:description content><meta name=twitter:image content="https://n9e.github.io/doks.png"><meta name=twitter:image:alt content="监控K8s"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://n9e.github.io/#/schema/organization/1","name":"Doks","url":"https://n9e.github.io/","sameAs":["https://twitter.com/ulricqin","https://github.com/ccfos/nightingale"],"logo":{"@type":"ImageObject","@id":"https://n9e.github.io/#/schema/image/1","url":"https://n9e.github.io/logo-doks.png","width":512,"height":512,"caption":"Doks"},"image":{"@id":"https://n9e.github.io/#/schema/image/1"}},{"@type":"WebSite","@id":"https://n9e.github.io/#/schema/website/1","url":"https://n9e.github.io/","name":"Nightingale","description":"Modern cloud native monitoring system - CCF","publisher":{"@id":"https://n9e.github.io/#/schema/organization/1"}},{"@type":"WebPage","@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/","url":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/","name":"监控K8s","description":"","isPartOf":{"@id":"https://n9e.github.io/#/schema/website/1"},"about":{"@id":"https://n9e.github.io/#/schema/organization/1"},"datePublished":"2020-10-06T08:48:45CET","dateModified":"2022-06-14T23:18:16CET","breadcrumb":{"@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/#/schema/breadcrumb/1"},"primaryImageOfPage":{"@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/#/schema/image/2"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/"]}]},{"@type":"BreadcrumbList","@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/#/schema/breadcrumb/1","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://n9e.github.io/","url":"https://n9e.github.io/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://n9e.github.io/docs/","url":"https://n9e.github.io/docs/","name":"Docs"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://n9e.github.io/docs/appendix/","url":"https://n9e.github.io/docs/appendix/","name":"Appendix"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","@id":"https://n9e.github.io/docs/appendix/grafana-agent/","url":"https://n9e.github.io/docs/appendix/grafana-agent/","name":"Grafana Agent"}},{"@type":"ListItem","position":5,"item":{"@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://n9e.github.io/#/schema/article/1","headline":"监控K8s","description":"","isPartOf":{"@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/"},"mainEntityOfPage":{"@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/"},"datePublished":"2020-10-06T08:48:45CET","dateModified":"2022-06-14T23:18:16CET","author":{"@id":"https://n9e.github.io/#/schema/person/2"},"publisher":{"@id":"https://n9e.github.io/#/schema/organization/1"},"image":{"@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/#/schema/image/2"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://n9e.github.io/#/schema/person/2","name":"Henk Verlinde","sameAs":["https://twitter.com/henkverlinde","https://www.linkedin.com/in/henkverlinde/","https://github.com/UlricQin"]}]},{"@context":"https://schema.org","@graph":[{"@type":"ImageObject","@id":"https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/#/schema/image/2","url":"https://n9e.github.io/doks.png","contentUrl":"https://n9e.github.io/doks.png","caption":"监控K8s"}]}]}</script><meta name=theme-color content="#fff"><link rel=apple-touch-icon sizes=180x180 href=https://n9e.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://n9e.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://n9e.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://n9e.github.io/site.webmanifest></head><body class="docs single"><div class=header-bar></div><header class="navbar navbar-expand-md navbar-light doks-navbar"><nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation"><a class="navbar-brand p-0 me-auto" href=/ aria-label=Nightingale>Nightingale</a>
+<button class="btn btn-menu d-block d-md-none order-5" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasDoks aria-controls=offcanvasDoks aria-label="Open main menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="offcanvas offcanvas-end border-0 py-md-1" tabindex=-1 id=offcanvasDoks data-bs-backdrop=true aria-labelledby=offcanvasDoksLabel><div class="header-bar d-md-none"></div><div class="offcanvas-header d-md-none"><h2 class="h5 offcanvas-title ps-2" id=offcanvasDoksLabel><a class=text-dark href=/>Nightingale</a></h2><button type=button class="btn-close text-reset me-2" data-bs-dismiss=offcanvas aria-label="Close main menu"></button></div><div class="offcanvas-body px-4"><h3 class="h6 text-uppercase mb-3 d-md-none">Main</h3><ul class="nav flex-column flex-md-row ms-md-n3"><li class=nav-item><a class="nav-link ps-0 py-1 active" href=/docs/prologue/introduction/>Docs</a></li><li class=nav-item><a class="nav-link ps-0 py-1" href=https://www.gitlink.org.cn/ccfos/nightingale/wiki>FAQ</a></li></ul><hr class="text-black-50 my-4 d-md-none"><h3 class="h6 text-uppercase mb-3 d-md-none">Socials</h3><ul class="nav flex-column flex-md-row ms-md-auto me-md-n5 pe-md-2"><li class=nav-item><a class="nav-link ps-0 py-1" href=https://github.com/ccfos/nightingale><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><small class="ms-2 d-md-none">GitHub</small></a></li></ul></div></div><button id=mode class="btn btn-link order-md-1" type=button aria-label="Toggle user interface mode">
+<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span><span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button></nav></header><nav class="doks-subnavbar py-2 sticky-lg-top" aria-label="Secondary navigation"><div class="container-xxl d-flex align-items-md-center"><form class="doks-search position-relative flex-grow-1 me-auto"><input id=search class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off><div id=suggestions class="shadow bg-white rounded d-none"></div></form><button class="btn doks-sidebar-toggle d-lg-none ms-3 order-3 collapsed" type=button data-bs-toggle=collapse data-bs-target=#doks-docs-nav aria-controls=doks-docs-nav aria-expanded=false aria-label="Toggle documentation navigation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg></button></div></nav><div class=container-xxl><aside class=doks-sidebar><nav id=doks-docs-nav class="collapse d-lg-none" aria-label="Tertiary navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-e05dce83e5129785b9f316978a14b896 aria-expanded=false>
+简介</button><div class=collapse id=section-e05dce83e5129785b9f316978a14b896><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/prologue/introduction/>夜莺介绍</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/prologue/share/>社区分享</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-039d392cea6b20609a2aa94015441bad aria-expanded=false>
+安装部署</button><div class=collapse id=section-039d392cea6b20609a2aa94015441bad><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/compose/>Docker Compose</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/helm/>Helm</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/server/>服务端组件部署</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/victoria/>VictoriaMetrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/ibex/>Ibex</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-15ad62fa6c036f6a916b4336fe04c118 aria-expanded=false>
+采集器</button><div class=collapse id=section-15ad62fa6c036f6a916b4336fe04c118><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/categraf/>Categraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/telegraf/>Telegraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/datadog-agent/>Datadog-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/grafana-agent/>Grafana-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/falcon-plugin/>Falcon-Plugin</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-32b9362149d032ed724daac36671f31a aria-expanded=false>
+使用手册</button><div class=collapse id=section-32b9362149d032ed724daac36671f31a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/video/>入门教程</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/snmp/>SNMP</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/apm/>应用监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/mtail/>日志监控</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-db974238714ca8de634a7ce1d083a14f aria-expanded=false>
+API</button><div class=collapse id=section-db974238714ca8de634a7ce1d083a14f><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/api/read/>数据读取</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/api/push/>数据推送</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/api/webapi/>Webapi接口</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-2e307a62e897bd84f1fcb3f4443e46dc aria-expanded=true>
+附录</button><div class="collapse show" id=section-2e307a62e897bd84f1fcb3f4443e46dc><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-99d0251d969c569e15cd7b8de1245c49 aria-expanded=true>
+Grafana-agent</button><div class="collapse show" id=section-99d0251d969c569e15cd7b8de1245c49><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/grafana-agent-overview/>总览</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/k8s_metrics/>收集metrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/k8s_logs/>收集logs</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/k8s_traces/>收集trace</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/scrape_exporters/>收集三方exporter</a></li><li><a class="docs-link rounded active" href=https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/>监控K8s</a></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-415320131958c70f4f250ca4d7e63bbd aria-expanded=false>
+integrations</button><div class=collapse id=section-415320131958c70f4f250ca4d7e63bbd><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/overview/>Overview</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/node-exporter-config/>Node Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/mysqld-exporter-config/>MySQLd Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/process-exporter-config/>Process Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/cadvisor-config/>cAdvisor Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/windows-exporter-config/>Windows Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/postgres-exporter-config/>Postgres Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/mongodb-exporter-config/>Mongodb Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/redis-exporter-config/>Redis Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/memcached-exporter-config/>Memcached Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/kafka-exporter-config/>Kafka Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/elasticsearch-exporter-config/>Elasticsearch Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/consul-exporter-config/>Consul Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/dnsmasq-exporter-config/>dnsmasq Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/github-exporter-config/>Github Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/statsd-exporter-config/>Statsd Exporter</a></li></ul></div></li></ul></div></li></ul></div></li></ul></nav></aside></div><div class="wrap container-xxl" role=document><div class=content><div class="row flex-xl-nowrap"><div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block"><nav class=docs-links aria-label="Main navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-e05dce83e5129785b9f316978a14b896 aria-expanded=false>
+简介</button><div class=collapse id=section-e05dce83e5129785b9f316978a14b896><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/prologue/introduction/>夜莺介绍</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/prologue/share/>社区分享</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-039d392cea6b20609a2aa94015441bad aria-expanded=false>
+安装部署</button><div class=collapse id=section-039d392cea6b20609a2aa94015441bad><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/compose/>Docker Compose</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/helm/>Helm</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/server/>服务端组件部署</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/victoria/>VictoriaMetrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/install/ibex/>Ibex</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-15ad62fa6c036f6a916b4336fe04c118 aria-expanded=false>
+采集器</button><div class=collapse id=section-15ad62fa6c036f6a916b4336fe04c118><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/categraf/>Categraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/telegraf/>Telegraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/datadog-agent/>Datadog-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/grafana-agent/>Grafana-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/agent/falcon-plugin/>Falcon-Plugin</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-32b9362149d032ed724daac36671f31a aria-expanded=false>
+使用手册</button><div class=collapse id=section-32b9362149d032ed724daac36671f31a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/video/>入门教程</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/snmp/>SNMP</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/apm/>应用监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/usage/mtail/>日志监控</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-db974238714ca8de634a7ce1d083a14f aria-expanded=false>
+API</button><div class=collapse id=section-db974238714ca8de634a7ce1d083a14f><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/api/read/>数据读取</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/api/push/>数据推送</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/api/webapi/>Webapi接口</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-2e307a62e897bd84f1fcb3f4443e46dc aria-expanded=true>
+附录</button><div class="collapse show" id=section-2e307a62e897bd84f1fcb3f4443e46dc><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-99d0251d969c569e15cd7b8de1245c49 aria-expanded=true>
+Grafana-agent</button><div class="collapse show" id=section-99d0251d969c569e15cd7b8de1245c49><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/grafana-agent-overview/>总览</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/k8s_metrics/>收集metrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/k8s_logs/>收集logs</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/k8s_traces/>收集trace</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/scrape_exporters/>收集三方exporter</a></li><li><a class="docs-link rounded active" href=https://n9e.github.io/docs/appendix/grafana-agent/how-to-monitoring-k8s/>监控K8s</a></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-415320131958c70f4f250ca4d7e63bbd aria-expanded=false>
+integrations</button><div class=collapse id=section-415320131958c70f4f250ca4d7e63bbd><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/overview/>Overview</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/node-exporter-config/>Node Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/mysqld-exporter-config/>MySQLd Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/process-exporter-config/>Process Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/cadvisor-config/>cAdvisor Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/windows-exporter-config/>Windows Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/postgres-exporter-config/>Postgres Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/mongodb-exporter-config/>Mongodb Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/redis-exporter-config/>Redis Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/memcached-exporter-config/>Memcached Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/kafka-exporter-config/>Kafka Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/elasticsearch-exporter-config/>Elasticsearch Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/consul-exporter-config/>Consul Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/dnsmasq-exporter-config/>dnsmasq Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/github-exporter-config/>Github Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/docs/appendix/grafana-agent/integrations/statsd-exporter-config/>Statsd Exporter</a></li></ul></div></li></ul></div></li></ul></div></li></ul></nav></div><main class="docs-content col-lg-11 col-xl-9 mx-xl-auto"><h1>监控K8s</h1><p class=lead></p><blockquote><p>Acknowledgement: grafana-agent is powered by <a href=https://github.com/grafana/agent>Grafana Agent</a>. Grafana Agent is a lightweight telemetry collector based on Prometheus that only performs its scraping and remote_write functions. Agent can also collect metrics, logs, and traces for storage in Grafana Cloud and Grafana Enterprise, as well as OSS deployments of Loki (logs), and Tempo (traces), Prometheus (metrics), and Cortex (metrics). Grafana Agent also contains several integrations (embedded metrics exporters) like node-exporter, a MySQL exporter, and many more.</p><p>The Grafana Agent uses the same code as Prometheus, but tackles these issues by only using the most relevant parts of Prometheus for interaction with hosted metrics:</p><ul><li>Service Discovery</li><li>Scraping</li><li>Write Ahead Log (WAL)</li><li>Remote Write</li></ul></blockquote><p><strong>对于Kubernetes集群及其上应用，我们推荐从以下几个方面，建立起完整的kubernetes指标监控体系：</strong></p><h1 id=前置依赖>前置依赖 <a href=#%e5%89%8d%e7%bd%ae%e4%be%9d%e8%b5%96 class=anchor aria-hidden=true>#</a></h1><ol><li>如何在K8s中运行和启动grafana-agent，请参考<a href=/grafana-agent/k8s_metrics>在kubernetes中运行grafana-agent收集</a>。</li><li>推荐您以daemonset，在每个节点上启动一个grafana-agent实例。</li></ol><h1 id=通过kubelet来了解和监控k8s节点的基本运行状态数据>通过kubelet来了解和监控k8s节点的基本运行状态数据 <a href=#%e9%80%9a%e8%bf%87kubelet%e6%9d%a5%e4%ba%86%e8%a7%a3%e5%92%8c%e7%9b%91%e6%8e%a7k8s%e8%8a%82%e7%82%b9%e7%9a%84%e5%9f%ba%e6%9c%ac%e8%bf%90%e8%a1%8c%e7%8a%b6%e6%80%81%e6%95%b0%e6%8d%ae class=anchor aria-hidden=true>#</a></h1><h2 id=方案一直接访问kubelet来获取节点状态指标数据>方案一：直接访问kubelet来获取节点状态指标数据 <a href=#%e6%96%b9%e6%a1%88%e4%b8%80%e7%9b%b4%e6%8e%a5%e8%ae%bf%e9%97%aekubelet%e6%9d%a5%e8%8e%b7%e5%8f%96%e8%8a%82%e7%82%b9%e7%8a%b6%e6%80%81%e6%8c%87%e6%a0%87%e6%95%b0%e6%8d%ae class=anchor aria-hidden=true>#</a></h2><p>Kubelet组件运行在Kubernetes集群的各个节点中，其负责维护和管理节点上Pod的运行状态。kubelet组件的正常运行直接关系到该节点是否能够正常的被Kubernetes集群正常使用。</p><p>基于<a href=https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config>Prometheus在K8s环境下的服务发现能力</a>，在Node模式，grafana-agent会自动发现Kubernetes中所有Node节点的信息并作为监控的目标Target。 而这些Target的访问地址实际上就是Kubelet的访问地址。</p><blockquote><p><strong>创建ConfigMap，其中包含grafana-agent的配置文件如下</strong></p></blockquote><pre><code class=language-yaml>export NAMESPACE=default
+export CLUSTER_NAME=kubernetes
+export REMOTE_WRITE_URL=http://n9e-server:19000/prometheus/v1/write
+export REMOTE_WRITE_USERNAME=fc_laiwei
+export REMOTE_WRITE_PASSWORD=fc_laiweisecret
+
+cat &lt;&lt;EOF |
+kind: ConfigMap
+metadata:
+  name: grafana-agent
+apiVersion: v1
+data:
+  agent.yaml: |
+    server:
+      http_listen_port: 12345
+    metrics:
+      wal_directory: /tmp/grafana-agent-wal
+      global:
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        external_labels:
+          cluster: ${CLUSTER_NAME}
+      configs:
+      - name: fc_k8s_scrape
+        remote_write:
+        - url: ${REMOTE_WRITE_URL}
+          basic_auth:
+            username: ${REMOTE_WRITE_USERNAME}
+            password: ${REMOTE_WRITE_PASSWORD}
+        scrape_configs:
+        - job_name: integrations/kubernetes/kubelet
+          scheme: https
+          tls_config:
+              ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+              insecure_skip_verify: true
+          bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          kubernetes_sd_configs:
+          - role: node
+          relabel_configs:
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+EOF
+
+envsubst | kubectl apply -n $NAMESPACE -f -
+</code></pre><blockquote><p><strong>重建grafana-agent实例</strong></p></blockquote><pre><code class=language-bash>kubectl rollout restart daemonset/grafana-agent
+</code></pre><p>这里使用Node模式自动发现集群中所有Kubelet作为监控的数据采集目标，同时通过<code>labelmap</code>步骤，将Node节点上的标签，作为样本的标签保存到时间序列当中。
+重新加载grafana-agent的配置文件，并重建grafana-agent的Pod实例后，在nightingale dashboard中搜索<code>{job="integrations/kubernetes/kubelet"}</code>，即可看到相应的时序数据了。</p><h2 id=方案二通过kube-apiserver提供的api间接获取kubelet的指标数据>方案二：通过kube-apiserver提供的API间接获取kubelet的指标数据 <a href=#%e6%96%b9%e6%a1%88%e4%ba%8c%e9%80%9a%e8%bf%87kube-apiserver%e6%8f%90%e4%be%9b%e7%9a%84api%e9%97%b4%e6%8e%a5%e8%8e%b7%e5%8f%96kubelet%e7%9a%84%e6%8c%87%e6%a0%87%e6%95%b0%e6%8d%ae class=anchor aria-hidden=true>#</a></h2><p>不同于上面第一种方法，其直接通过kubelet的metrics服务采集监控数据，方法二通过Kubernetes的api-server提供的代理API访问各个节点中kubelet的metrics服务。</p><blockquote><p><strong>创建ConfigMap，其中包含grafana-agent的配置文件如下</strong></p></blockquote><pre><code class=language-yaml>export NAMESPACE=default
+export CLUSTER_NAME=kubernetes
+export REMOTE_WRITE_URL=http://10.206.0.16:8480/insert/0/prometheus/api/v1/write
+export REMOTE_WRITE_URL=http://n9e-server:19000/prometheus/v1/write
+export REMOTE_WRITE_USERNAME=fc_laiwei
+export REMOTE_WRITE_PASSWORD=fc_laiweisecret
+
+cat &lt;&lt;EOF |
+kind: ConfigMap
+metadata:
+  name: grafana-agent
+apiVersion: v1
+data:
+  agent.yaml: |
+    server:
+      http_listen_port: 12345
+    metrics:
+      wal_directory: /tmp/grafana-agent-wal
+      global:
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        external_labels:
+          cluster: ${CLUSTER_NAME}
+      configs:
+      - name: fc_k8s_scrape
+        remote_write:
+        - url: ${REMOTE_WRITE_URL}
+          basic_auth:
+            username: ${REMOTE_WRITE_USERNAME}
+            password: ${REMOTE_WRITE_PASSWORD}
+        scrape_configs:
+        - job_name: 'integrations/kubernetes/kubelet'
+          scheme: https
+          tls_config:
+            ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+          bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          kubernetes_sd_configs:
+          - role: node
+          relabel_configs:
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+          - target_label: __address__
+            replacement: kubernetes.default.svc:443
+          - source_labels: [__meta_kubernetes_node_name]
+            regex: (.+)
+            target_label: __metrics_path__
+            replacement: /api/v1/nodes/\${1}/proxy/metrics
+EOF
+
+envsubst | kubectl apply -n $NAMESPACE -f -
+</code></pre><p>通过relabeling，将从Kubernetes获取到的默认地址<code>__address__</code>替换为<code>kubernetes.default.svc:443</code>。同时将<code>__metrics_path__</code>替换为api-server的代理地址<code>/api/v1/nodes/${1}/proxy/metrics</code>。</p><p>通过获取各个节点中kubelet的监控指标，您可以评估集群中各节点的性能表现。例如:</p><p><strong>1. 通过指标<code>kubelet_pod_start_duration_seconds</code>可以获得当前节点中Pod启动时间相关的统计数据。</strong></p><pre><code class=language-yaml>kubelet_pod_start_duration_seconds{quantile=&quot;0.99&quot;}
+</code></pre><p><strong>2. Pod平均启动时间（包含镜像下载时间）：</strong></p><pre><code class=language-yaml>kubelet_pod_start_duration_seconds_sum / kubelet_pod_start_duration_seconds_count
+</code></pre><p>除此以外，监控指标<code>kubelet_docker_*</code>还可以体现出kubelet与当前节点的docker服务的调用情况，从而可以反映出docker本身是否会影响kubelet的性能表现等问题。</p><h1 id=通过cadvisor来了解和监控节点中的容器运行状态>通过cAdvisor来了解和监控节点中的容器运行状态 <a href=#%e9%80%9a%e8%bf%87cadvisor%e6%9d%a5%e4%ba%86%e8%a7%a3%e5%92%8c%e7%9b%91%e6%8e%a7%e8%8a%82%e7%82%b9%e4%b8%ad%e7%9a%84%e5%ae%b9%e5%99%a8%e8%bf%90%e8%a1%8c%e7%8a%b6%e6%80%81 class=anchor aria-hidden=true>#</a></h1><p>各节点的kubelet组件中除了包含自身的监控指标信息以外，kubelet组件还内置了对cAdvisor的支持。cAdvisor能够获取当前节点上运行的所有容器的资源使用情况，通过访问kubelet的/metrics/cadvisor地址可以获取到cadvisor的监控指标，因此和获取kubelet监控指标类似，这里同样通过node模式自动发现所有的kubelet信息，并通过适当的relabel过程，修改监控采集任务的配置。 与采集kubelet自身监控指标相似，这里也有两种方式采集cadvisor中的监控指标：</p><h2 id=方案一直接访问kubelet的metricscadvisor地址需要跳过ca证书认证>方案一：直接访问kubelet的/metrics/cadvisor地址，需要跳过ca证书认证 <a href=#%e6%96%b9%e6%a1%88%e4%b8%80%e7%9b%b4%e6%8e%a5%e8%ae%bf%e9%97%aekubelet%e7%9a%84metricscadvisor%e5%9c%b0%e5%9d%80%e9%9c%80%e8%a6%81%e8%b7%b3%e8%bf%87ca%e8%af%81%e4%b9%a6%e8%ae%a4%e8%af%81 class=anchor aria-hidden=true>#</a></h2><pre><code class=language-yaml>export NAMESPACE=default
+export CLUSTER_NAME=kubernetes
+export REMOTE_WRITE_URL=http://10.206.0.16:8480/insert/0/prometheus/api/v1/write
+export REMOTE_WRITE_URL=http://n9e-server:19000/prometheus/v1/write
+export REMOTE_WRITE_USERNAME=fc_laiwei
+export REMOTE_WRITE_PASSWORD=fc_laiweisecret
+
+cat &lt;&lt;EOF |
+kind: ConfigMap
+metadata:
+  name: grafana-agent
+apiVersion: v1
+data:
+  agent.yaml: |
+    server:
+      http_listen_port: 12345
+    metrics:
+      wal_directory: /tmp/grafana-agent-wal
+      global:
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        external_labels:
+          cluster: ${CLUSTER_NAME}
+      configs:
+      - name: fc_k8s_scrape
+        remote_write:
+        - url: ${REMOTE_WRITE_URL}
+          basic_auth:
+            username: ${REMOTE_WRITE_USERNAME}
+            password: ${REMOTE_WRITE_PASSWORD}
+        scrape_configs:
+        - job_name: 'integrations/kubernetes/cadvisor'
+          scheme: https
+          tls_config:
+            ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+            insecure_skip_verify: true
+          bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          kubernetes_sd_configs:
+          - role: node
+          relabel_configs:
+          - source_labels: [__meta_kubernetes_node_name]
+            regex: (.+)
+            target_label: __metrics_path__
+            replacement: metrics/cadvisor
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+EOF
+
+envsubst | kubectl apply -n $NAMESPACE -f -
+</code></pre><h2 id=方案二通过api-server提供的代理地址访问kubelet的metricscadvisor地址>方案二：通过api-server提供的代理地址访问kubelet的/metrics/cadvisor地址 <a href=#%e6%96%b9%e6%a1%88%e4%ba%8c%e9%80%9a%e8%bf%87api-server%e6%8f%90%e4%be%9b%e7%9a%84%e4%bb%a3%e7%90%86%e5%9c%b0%e5%9d%80%e8%ae%bf%e9%97%aekubelet%e7%9a%84metricscadvisor%e5%9c%b0%e5%9d%80 class=anchor aria-hidden=true>#</a></h2><pre><code class=language-yaml>export NAMESPACE=default
+export CLUSTER_NAME=kubernetes
+export REMOTE_WRITE_URL=http://10.206.0.16:8480/insert/0/prometheus/api/v1/write
+export REMOTE_WRITE_URL=http://n9e-server:19000/prometheus/v1/write
+export REMOTE_WRITE_USERNAME=fc_laiwei
+export REMOTE_WRITE_PASSWORD=fc_laiweisecret
+
+cat &lt;&lt;EOF |
+kind: ConfigMap
+metadata:
+  name: grafana-agent
+apiVersion: v1
+data:
+  agent.yaml: |
+    server:
+      http_listen_port: 12345
+    metrics:
+      wal_directory: /tmp/grafana-agent-wal
+      global:
+        scrape_interval: 15s
+        scrape_timeout: 10s
+        external_labels:
+          cluster: ${CLUSTER_NAME}
+      configs:
+      - name: fc_k8s_scrape
+        remote_write:
+        - url: ${REMOTE_WRITE_URL}
+          basic_auth:
+            username: ${REMOTE_WRITE_USERNAME}
+            password: ${REMOTE_WRITE_PASSWORD}
+        scrape_configs:
+        - job_name: 'integrations/kubernetes/cadvisor'
+          scheme: https
+          tls_config:
+            ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+          bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+          kubernetes_sd_configs:
+          - role: node
+          relabel_configs:
+          - target_label: __address__
+            replacement: kubernetes.default.svc:443
+          - source_labels: [__meta_kubernetes_node_name]
+            regex: (.+)
+            target_label: __metrics_path__
+            replacement: /api/v1/nodes/${1}/proxy/metrics/cadvisor
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
+</code></pre><h1 id=使用nodeexporter监控节点资源使用情况>使用NodeExporter监控节点资源使用情况 <a href=#%e4%bd%bf%e7%94%a8nodeexporter%e7%9b%91%e6%8e%a7%e8%8a%82%e7%82%b9%e8%b5%84%e6%ba%90%e4%bd%bf%e7%94%a8%e6%83%85%e5%86%b5 class=anchor aria-hidden=true>#</a></h1><p>为了能够采集集群中各个节点的资源使用情况，我们可以借助grafana-agent内置的NodeExporter。具体的步骤可以参考：<a href=/grafana-agent/integrations/node-exporter-config>grafana-agent node_exporter</a>。</p><h1 id=通过kube-apiserver来了解整个k8s集群的详细运行状态>通过kube-apiserver来了解整个K8s集群的详细运行状态 <a href=#%e9%80%9a%e8%bf%87kube-apiserver%e6%9d%a5%e4%ba%86%e8%a7%a3%e6%95%b4%e4%b8%aak8s%e9%9b%86%e7%be%a4%e7%9a%84%e8%af%a6%e7%bb%86%e8%bf%90%e8%a1%8c%e7%8a%b6%e6%80%81 class=anchor aria-hidden=true>#</a></h1><p><code>kube-apiserver</code>扮演了整个Kubernetes集群管理的入口的角色，负责对外暴露Kubernetes API。kube-apiserver组件一般是独立部署在集群外的，为了能够让部署在集群内的应用（kubernetes插件或者用户应用）能够与kube-apiserver交互，Kubernetes会默认在命名空间下创建一个名为kubernetes的服务，如下所示：</p><pre><code class=language-bash>$ kubectl get svc kubernetes -o wide
+NAME                  TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE       SELECTOR
+kubernetes            ClusterIP   10.96.0.1       &lt;none&gt;        443/TCP          166d      &lt;none&gt;
+</code></pre><p>而该kubernetes服务代理的后端实际地址通过endpoints进行维护，如下所示：</p><pre><code class=language-bash>$ kubectl get endpoints kubernetes
+NAME         ENDPOINTS        AGE
+kubernetes   10.0.2.15:8443   166d
+</code></pre><p>通过这种方式集群内的应用或者系统主机就可以通过集群内部的DNS域名kubernetes.default.svc访问到部署外部的kube-apiserver实例。</p><p>因此，如果我们想要监控kube-apiserver相关的指标，只需要通过endpoints资源找到kubernetes对应的所有后端地址即可。</p><p>如下所示，创建监控任务kubernetes-apiservers，这里指定了服务发现模式为endpoints。grafana-agent会查找当前集群中所有的endpoints配置，并通过relabel进行判断是否为apiserver对应的访问地址：</p><pre><code class=language-yaml>    - job_name: 'kubernetes-apiservers'
+      kubernetes_sd_configs:
+      - role: endpoints
+      scheme: https
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
+        action: keep
+        regex: default;kubernetes;https
+      - target_label: __address__
+        replacement: kubernetes.default.svc:443
+</code></pre><p>在relabel_configs配置中第一步用于判断当前endpoints是否为kube-apiserver对用的地址。第二步，替换监控采集地址到kubernetes.default.svc:443即可。重新加载配置文件，重建grafana-agent实例，用以下<code>promql</code> <code>{service="kubernetes", job="apiserver"}</code>即可在nightingale dashboard中得到kube-apiserver相关的metrics数据。</p><h1 id=通过blackboxexporter了解和监控k8s集群中的网络连通状况>通过BlackboxExporter了解和监控K8s集群中的网络连通状况 <a href=#%e9%80%9a%e8%bf%87blackboxexporter%e4%ba%86%e8%a7%a3%e5%92%8c%e7%9b%91%e6%8e%a7k8s%e9%9b%86%e7%be%a4%e4%b8%ad%e7%9a%84%e7%bd%91%e7%bb%9c%e8%bf%9e%e9%80%9a%e7%8a%b6%e5%86%b5 class=anchor aria-hidden=true>#</a></h1><p>为了能够对Ingress和Service进行探测，我们需要在K8s集群部署<code>Blackbox Exporter</code>实例。 如下所示，创建blackbox-exporter.yaml用于描述部署相关的内容:</p><pre><code class=language-yaml>cat &lt;&lt; EOF |
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: blackbox-exporter
+  name: blackbox-exporter
+spec:
+  ports:
+  - name: blackbox
+    port: 9115
+    protocol: TCP
+  selector:
+    app: blackbox-exporter
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: blackbox-exporter
+  name: blackbox-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blackbox-exporter
+  template:
+    metadata:
+      labels:
+        app: blackbox-exporter
+    spec:
+      containers:
+      - image: prom/blackbox-exporter
+        imagePullPolicy: IfNotPresent
+        name: blackbox-exporter
+EOF
+kubectl apply -f -
+</code></pre><p>通过以上命令，将在K8s集群中部署了一个<code>Blackbox Exporter</code>的Pod实例，同时通过服务blackbox-exporter在集群内暴露访问地址blackbox-exporter.default.svc.cluster.local，对于集群内的任意服务都可以通过该内部DNS域名访问Blackbox Exporter实例：</p><pre><code class=language-bash>$ kubectl get pods
+NAME                                        READY     STATUS        RESTARTS   AGE
+blackbox-exporter-f77fc78b6-72bl5           1/1       Running       0          4s
+
+$ kubectl get svc
+NAME                        TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+blackbox-exporter           ClusterIP   10.109.144.192   &lt;none&gt;        9115/TCP         3m
+</code></pre><p>为了能够让grafana-agent能够自动的对Service进行探测，我们需要通过服务发现自动找到所有的Service信息。 如下所示，在grafana-agent的配置文件中添加名为kubernetes-services的监控采集任务：</p><pre><code class=language-yaml>    - job_name: 'kubernetes-services'
+      metrics_path: /probe
+      params:
+        module: [http_2xx]
+      kubernetes_sd_configs:
+      - role: service
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_probe]
+        action: keep
+        regex: true
+      - source_labels: [__address__]
+        target_label: __param_target
+      - target_label: __address__
+        replacement: blackbox-exporter.default.svc.cluster.local:9115
+      - source_labels: [__param_target]
+        target_label: instance
+      - action: labelmap
+        regex: __meta_kubernetes_service_label_(.+)
+      - source_labels: [__meta_kubernetes_namespace]
+        target_label: kubernetes_namespace
+      - source_labels: [__meta_kubernetes_service_name]
+        target_label: kubernetes_name
+</code></pre><p>在该任务配置中，通过指定kubernetes_sd_config的role为service指定服务发现模式：</p><pre><code class=language-yaml>  kubernetes_sd_configs:
+    - role: service
+</code></pre><p>为了区分集群中需要进行探测的Service实例，我们通过标签‘prometheus.io/probe: true’进行判断，从而过滤出需要探测的所有Service实例：</p><pre><code class=language-yaml>      - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_probe]
+        action: keep
+        regex: true
+</code></pre><p>并且将通过服务发现获取到的Service实例地址<code>__address__</code>转换为获取监控数据的请求参数。同时将<code>__address</code>执行Blackbox Exporter实例的访问地址，并且重写了标签instance的内容：</p><pre><code class=language-yaml>      - source_labels: [__address__]
+        target_label: __param_target
+      - target_label: __address__
+        replacement: blackbox-exporter.default.svc.cluster.local:9115
+      - source_labels: [__param_target]
+        target_label: instance
+</code></pre><p>最后，为监控样本添加了额外的标签信息：</p><pre><code class=language-yaml>      - action: labelmap
+        regex: __meta_kubernetes_service_label_(.+)
+      - source_labels: [__meta_kubernetes_namespace]
+        target_label: kubernetes_namespace
+      - source_labels: [__meta_kubernetes_service_name]
+        target_label: kubernetes_name
+</code></pre><p>对于Ingress而言，也是一个相对类似的过程，这里给出对Ingress探测的grafana-agent任务配置作为参考：</p><pre><code class=language-yaml>    - job_name: 'kubernetes-ingresses'
+      metrics_path: /probe
+      params:
+        module: [http_2xx]
+      kubernetes_sd_configs:
+      - role: ingress
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_ingress_annotation_prometheus_io_probe]
+        action: keep
+        regex: true
+      - source_labels: [__meta_kubernetes_ingress_scheme,__address__,__meta_kubernetes_ingress_path]
+        regex: (.+);(.+);(.+)
+        replacement: ${1}://${2}${3}
+        target_label: __param_target
+      - target_label: __address__
+        replacement: blackbox-exporter.default.svc.cluster.local:9115
+      - source_labels: [__param_target]
+        target_label: instance
+      - action: labelmap
+        regex: __meta_kubernetes_ingress_label_(.+)
+      - source_labels: [__meta_kubernetes_namespace]
+        target_label: kubernetes_namespace
+      - source_labels: [__meta_kubernetes_ingress_name]
+        target_label: kubernetes_name
+</code></pre><h1 id=通过kube-state-metrics了解和监控k8s集群自身和应用的运行状态>通过kube-state-metrics了解和监控K8s集群自身和应用的运行状态 <a href=#%e9%80%9a%e8%bf%87kube-state-metrics%e4%ba%86%e8%a7%a3%e5%92%8c%e7%9b%91%e6%8e%a7k8s%e9%9b%86%e7%be%a4%e8%87%aa%e8%ba%ab%e5%92%8c%e5%ba%94%e7%94%a8%e7%9a%84%e8%bf%90%e8%a1%8c%e7%8a%b6%e6%80%81 class=anchor aria-hidden=true>#</a></h1><p>kube-state-metrics重点回答以下方面的问题：</p><ul><li>我调度了多少个replicas？现在可用的有几个？</li><li>多少个Pod是running/stopped/terminated状态？</li><li>Pod重启了多少次？</li><li>我有多少job在运行中？</li></ul><p>kube-state-metrics基于client-go开发，轮询Kubernetes API，并将Kubernetes的结构化信息转换为metrics。他所支持的指标包括：</p><ul><li>CronJob Metrics</li><li>DaemonSet Metrics</li><li>Deployment Metrics</li><li>Job Metrics</li><li>LimitRange Metrics</li><li>Node Metrics</li><li>PersistentVolume Metrics</li><li>PersistentVolumeClaim Metrics</li><li>Pod Metrics</li><li>Pod Disruption Budget Metrics</li><li>ReplicaSet Metrics</li><li>ReplicationController Metrics</li><li>ResourceQuota Metrics</li><li>Service Metrics</li><li>StatefulSet Metrics</li><li>Namespace Metrics</li><li>Horizontal Pod Autoscaler Metrics</li><li>Endpoint Metrics</li><li>Secret Metrics</li><li>ConfigMap Metrics</li></ul><p>以Pod为例：</p><ul><li>kube_pod_info</li><li>kube_pod_owner</li><li>kube_pod_status_phase</li><li>kube_pod_status_ready</li><li>kube_pod_status_scheduled</li><li>kube_pod_container_status_waiting</li><li>kube_pod_container_status_terminated_reason</li><li>&mldr;</li></ul><p><a href=https://github.com/kubernetes/kube-state-metrics/tree/master/examples/standard>部署清单</a>：</p><pre><code class=language-yaml>    ├── cluster-role-binding.yaml
+    ├── cluster-role.yaml
+    ├── deployment.yaml
+    ├── service-account.yaml
+    ├── service.yaml
+</code></pre><p>主要镜像有：</p><ul><li>image: quay.io/coreos/kube-state-metrics:v2.4.2</li><li>image: k8s.gcr.io/kube-state-metrics/kube-state-metrics</li></ul><p>由于 quay.io/coreos/kube-state-metrics <a href=https://kubernetes.io/blog/2021/04/13/kube-state-metrics-v-2-0/>不再更新</a>，推荐使用 k8s.gcr.io/kube-state-metrics/kube-state-metrics</p><blockquote><p>quay.io/coreos/kube-state-metrics images will no longer be updated. k8s.gcr.io/kube-state-metrics/kube-state-metrics is the new canonical location.</p></blockquote><p>对于pod的资源限制，一般情况下：</p><pre><code>200MiB memory
+0.1 cores
+</code></pre><p>超过100节点的集群：</p><pre><code>2MiB memory per node
+0.001 cores per node
+</code></pre><p>因为kube-state-metrics-service.yaml中有<code>prometheus.io/scrape: 'true'</code>标识，因此会将metric暴露给grafana-agent，而grafana-agent会在kubernetes-service-endpoints这个job下自动发现kube-state-metrics，并开始拉取metrics，无需其他配置。</p><p><strong>使用kube-state-metrics后的常用场景有</strong>：</p><ul><li>存在执行失败的Job: kube_job_status_failed{job=&ldquo;kubernetes-service-endpoints&rdquo;,k8s_app=&ldquo;kube-state-metrics&rdquo;}==1</li><li>集群节点状态错误: kube_node_status_condition{condition=&ldquo;Ready&rdquo;,status!=&ldquo;true&rdquo;}==1</li><li>集群中存在启动失败的Pod：kube_pod_status_phase{phase=~&ldquo;Failed|Unknown&rdquo;}==1</li><li>最近30分钟内有Pod容器重启: changes(kube_pod_container_status_restarts[30m])>0</li></ul><blockquote><p>参考资料</p></blockquote><ul><li><a href=https://yunlzheng.gitbook.io/prometheus-book/part-ii-prometheus-jin-jie/sd/why-need-service-discovery>Prometheus与服务发现</a></li><li><a href=https://yunlzheng.gitbook.io/prometheus-book/part-ii-prometheus-jin-jie/sd/service-discovery-with-file>基于文件的服务发现</a></li><li><a href=https://yunlzheng.gitbook.io/prometheus-book/part-ii-prometheus-jin-jie/sd/service-discovery-with-consul>基于Consul的服务发现</a></li><li><a href=https://yunlzheng.gitbook.io/prometheus-book/part-ii-prometheus-jin-jie/sd/service-discovery-with-relabel>服务发现与Relabel</a></li><li><a href=https://yunlzheng.gitbook.io/prometheus-book/part-iii-prometheus-shi-zhan/readmd/service-discovery-with-kubernetes>Kubernetes下的服务发现</a></li><li><a href=https://yunlzheng.gitbook.io/prometheus-book/part-iii-prometheus-shi-zhan/readmd/use-prometheus-monitor-kubernetes>监控Kubernetes集群</a></li><li><a href=https://github.com/kubernetes/kube-state-metrics>kube-state-metrics</a></li><li><a href=https://yasongxu.gitbook.io/container-monitor/yi-.-kai-yuan-fang-an/di-1-zhang-cai-ji/kube-state-metrics>kube-state-metrics deoplyment</a></li></ul><blockquote><p><em>Acknowledgement:本文档在<a href=https://yunlzheng.gitbook.io/prometheus-book/part-iii-prometheus-shi-zhan/readmd/use-prometheus-monitor-kubernetes>yunlzheng 监控Kubernetes集群</a>的基础上修改和补充而成，相关文字的版权归属<a href=https://github.com/yunlzheng>原作者yunlzheng</a>所有，并致以谢意。</em></p></blockquote><div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between"><div class=edit-page><a href=https://github.com/n9e/n9e.github.io/blob/master/content/en/docs/appendix/grafana-agent/how-to-monitoring-k8s.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></div></div><div class="docs-navigation d-flex justify-content-between"><a href=/docs/appendix/grafana-agent/scrape_exporters/><div class="card my-1"><div class="card-body py-2">&larr; 收集三方exporter</div></div></a><a class=ms-auto href=/docs/appendix/grafana-agent/integrations/overview/><div class="card my-1"><div class="card-body py-2">Overview &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container-xxl><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>&copy; 2022 CCF·Nightingale, all rights reserved.</li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=/js/bootstrap.min.0a0106334435d4110713bfaff4acaf02533b0c56d44412a74e9518db07672ddb7e099a9c7517bc9cb529e2ddd4ae2e438b40b720288900d5e74fb6d8928d9097.js integrity="sha512-CgEGM0Q11BEHE7+v9KyvAlM7DFbURBKnTpUY2wdnLdt+CZqcdRe8nLUp4t3Uri5Di0C3ICiJANXnT7bYko2Qlw==" crossorigin=anonymous defer></script>
+<script src=/js/highlight.min.0d31f7af12feb83ee633b6351b023ee643ea3412376fbaa09c5a26d1a5ef999939f1ad379a5b12e1199a2c7d72ae1b23f633060a679628dcbfb0e72378cd20be.js integrity="sha512-DTH3rxL+uD7mM7Y1GwI+5kPqNBI3b7qgnFom0aXvmZk58a03mlsS4RmaLH1yrhsj9jMGCmeWKNy/sOcjeM0gvg==" crossorigin=anonymous defer></script>
+<script src=/main.min.6afc4bf655f45ae3e63629ec95be8bd2e0e792084b5635a6fe70b169fa9d1491638b3a4e900ed59c2e017ca18768e5c392e110d0e1336509f49f7dc418d16eef.js integrity="sha512-avxL9lX0WuPmNinslb6L0uDnkghLVjWm/nCxafqdFJFjizpOkA7VnC4BfKGHaOXDkuEQ0OEzZQn0n33EGNFu7w==" crossorigin=anonymous defer></script>
+<script src=https://n9e.github.io/index.min.9d9498e0849f1ba5a17ade983d456669f945241bdc20b54c294c6153aa862c757d8eeb6a2879452e6636cbcb06afcb31ec127355666bc6a772e7db8b37ef0719.js integrity="sha512-nZSY4ISfG6Whet6YPUVmaflFJBvcILVMKUxhU6qGLHV9jutqKHlFLmY2y8sGr8sx7BJzVWZrxqdy59uLN+8HGQ==" crossorigin=anonymous defer></script>
+<script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?9d7cc507a7aae60b28b5e04bb995492a",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script></body></html>
