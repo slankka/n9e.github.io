@@ -30,6 +30,7 @@ toc: true
 - [好未来Nightingale监控系统落地](https://mp.weixin.qq.com/s/px1aV3Et0Omf_mosazRO_g) - mosesyu-好未来
 - [夜莺监控助力方正证券解决运维稳定性难题，5年铁粉用户给出满分评价](https://mp.weixin.qq.com/s/Mh4h5Q4iFMFy3AMK3hZTdg) - 杨豆豆@方正证券
 - [监控告警平台的国产化选择—Rancher 与夜莺的集成实践](https://mp.weixin.qq.com/s/PHy4KNrcO5I6jALtbcbBSw) - 张智博@Rancher
+- [高科技Startup构建监控体系之路](/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/) - 若尘@贝联珠贯
 
 
 ## 告警通知
