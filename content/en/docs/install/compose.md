@@ -13,7 +13,7 @@ weight: 610
 toc: true
 ---
 
-使用Docker Compose一键启动夜莺，快速尝试。更多Docker Compose相关知识请参考[Docker官网](https://docs.docker.com/compose/)
+使用Docker Compose一键启动夜莺，快速尝试。更多Docker Compose相关知识请参考[Docker官网](https://docs.docker.com/compose/) [操作演示](http://download.flashcat.cloud/n9e-compose.gif)
 
 ```bash
 $ git clone https://gitlink.org.cn/ccfos/nightingale.git
