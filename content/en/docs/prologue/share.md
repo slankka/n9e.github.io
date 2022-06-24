@@ -53,3 +53,7 @@ toc: true
 - [Categraf - 夜莺监控发布新轮子](https://mp.weixin.qq.com/s/IrOficG0Xdrc7F3bONKwHg) - 秦晓辉@快猫星云
 - [夜莺监控成为CCF托管开源项目](https://mp.weixin.qq.com/s/FTr5nkgSlqhiY9O1Xyi09g)  - laiwei@快猫星云
 - [云原生监控的十大趋势和特点](https://mp.weixin.qq.com/s/iOSc4jFRRv61kPdrZ85dnQ) - laiwei@快猫星云
+
+
+## 附件
+- 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/nightingale-introduction-v1.pdf)
