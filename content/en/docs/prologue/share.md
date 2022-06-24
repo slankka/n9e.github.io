@@ -55,5 +55,5 @@ toc: true
 - [云原生监控的十大趋势和特点](https://mp.weixin.qq.com/s/iOSc4jFRRv61kPdrZ85dnQ) - laiwei@快猫星云
 
 
-## 附件
+## 藏经阁
 - 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/nightingale-introduction-v1.pdf)
