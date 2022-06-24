@@ -18,7 +18,7 @@ toc: true
 ```bash
 $ git clone https://gitlink.org.cn/ccfos/nightingale.git
 $ cd nightingale/docker
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "docker_nightingale" with driver "bridge"
 Creating mysql      ... done
 Creating redis      ... done
@@ -28,7 +28,7 @@ Creating agentd     ... done
 Creating nwebapi    ... done
 Creating nserver    ... done
 Creating telegraf   ... done
-$ docker compose ps
+$ docker-compose ps
    Name                 Command               State                                   Ports
 ----------------------------------------------------------------------------------------------------------------------------
 agentd       /app/ibex agentd                 Up      10090/tcp, 20090/tcp
