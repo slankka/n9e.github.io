@@ -27,10 +27,10 @@ toc: true
 ## 案例研究
 - [映客直播使用夜莺监控，支撑5亿时间线节省8成费用](https://mp.weixin.qq.com/s/cfU4PY9yXCv_Dl8HcQme2g) - 映客@郑富强
 - [夜莺监控助力盛见网络，保障联盟链稳定运行](https://mp.weixin.qq.com/s/dG164-wsV4b3WdZnNuKK0w) - 池梦南@盛见网络
-- [好未来Nightingale监控系统落地](https://mp.weixin.qq.com/s/px1aV3Et0Omf_mosazRO_g) - mosesyu-好未来
 - [夜莺监控助力方正证券解决运维稳定性难题，5年铁粉用户给出满分评价](https://mp.weixin.qq.com/s/Mh4h5Q4iFMFy3AMK3hZTdg) - 杨豆豆@方正证券
 - [监控告警平台的国产化选择—Rancher 与夜莺的集成实践](https://mp.weixin.qq.com/s/PHy4KNrcO5I6jALtbcbBSw) - 张智博@Rancher
 - [高科技Startup构建监控体系之路](/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/) - 若尘@贝联珠贯
+- [主流监控工具如何选？头部在线教育公司的监控选型落地全流程分享v](https://mp.weixin.qq.com/s/NaSzhC7NWZmsOmoo19Tn5w) - 于长夫
 
 
 ## 告警通知

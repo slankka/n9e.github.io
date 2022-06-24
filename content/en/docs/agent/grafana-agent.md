@@ -64,4 +64,7 @@ nohup ./agent-linux-amd64 \
   &> grafana-agent.log &
 ```
 
-上面的配置内置启用了 node_exporter，Grafana-Agent 内置了很多 exporter，省的到处去找 exporter 了，感兴趣的话大家可以查阅 Grafana-Agent 的文档仔细研究下。
+上面的配置内置启用了 node_exporter，Grafana-Agent 内置了很多 exporter，省的到处去找 exporter 了.
+
+## 4. 延伸阅读
+- 阅读 [grafana-agent详细使用文档](/docs/appendix/grafana-agent/grafana-agent-overview/) ，了解更多。

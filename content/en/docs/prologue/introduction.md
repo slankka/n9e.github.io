@@ -18,9 +18,13 @@ toc: true
 - 后端：[💡 https://github.com/ccfos/nightingale](https://github.com/ccfos/nightingale)
 - 前端：[💡 https://github.com/n9e/fe-v5](https://github.com/n9e/fe-v5)
 
-欢迎大家在github上关注夜莺项目，及时获取项目更新动态，有任何问题，也欢迎提交 issue，当然，如果能直接 PR 就更好了，开源软件，就是需要大家一起参与才能有蓬勃的生命力。
+欢迎大家在[Github](https://github.com/ccfos/nightingale)上关注夜莺项目，及时获取项目更新动态，有任何问题，也欢迎提交 Issue，以及提交 PR，开源社区，需要大家一起参与才能有蓬勃的生命力。
 
 ## 产品介绍
+
+💡下载夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击以下链接下载：
+- [PDF版本](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/nightingale-introduction-v1.pdf)
+
 
 <img src="/images/arch-product.png">
 <br />
