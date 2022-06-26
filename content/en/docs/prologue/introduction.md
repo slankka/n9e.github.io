@@ -23,7 +23,7 @@ toc: true
 ## 产品介绍
 
 💡下载夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击以下链接下载：
-- [PDF版本](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/nightingale-introduction-v1.pdf)
+- [PDF版本](https://sourl.cn/spsLFC)
 
 
 <img src="/images/arch-product.png">
@@ -82,4 +82,4 @@ Nightingale 可以接入多个 Prometheus，可以允许用户在页面上配置
 
 
 > 欢迎下载快猫星云Flashcat™平台的介绍材料，期待交流：
-- [PDF版本](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashcat-introduction-v1.pdf)
+- [PDF版本](https://sourl.cn/G5iZCT)

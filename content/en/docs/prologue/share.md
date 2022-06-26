@@ -56,4 +56,4 @@ toc: true
 
 
 ## 藏经阁
-- 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/nightingale-introduction-v1.pdf)
+- 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://sourl.cn/spsLFC)
