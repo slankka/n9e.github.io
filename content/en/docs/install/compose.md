@@ -18,6 +18,7 @@ toc: true
 ```bash
 $ git clone https://gitlink.org.cn/ccfos/nightingale.git
 $ cd nightingale/docker
+# docker compose V2版本执行 docker compose up -d (https://docs.docker.com/compose/#compose-v2-and-the-new-docker-compose-command)
 $ docker-compose up -d
 Creating network "docker_nightingale" with driver "bridge"
 Creating mysql      ... done
@@ -28,6 +29,7 @@ Creating agentd     ... done
 Creating nwebapi    ... done
 Creating nserver    ... done
 Creating telegraf   ... done
+# docker compose V2版本执行 docker compose ps (https://docs.docker.com/compose/#compose-v2-and-the-new-docker-compose-command)
 $ docker-compose ps
    Name                 Command               State                                   Ports
 ----------------------------------------------------------------------------------------------------------------------------
