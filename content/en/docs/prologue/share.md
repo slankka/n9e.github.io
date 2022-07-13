@@ -24,6 +24,7 @@ toc: true
 - [2.2 监控系统典型架构以及夜莺分布式部署方案](https://mp.weixin.qq.com/s/zJU4nAr9MALXYr8woLTuUw)
 - [3.1 夜莺页面功能介绍](https://mp.weixin.qq.com/s/6fZBGq0o1o4wVRlKdKSfrA)
 - [4.1 监控数据采集必知必会](https://mp.weixin.qq.com/s/fvpilwvqe0hAN8GE9j_Oig)
+- [4.2 讲解Categraf采集器](https://mp.weixin.qq.com/s/T69kkBzToHVh31D87xsrIg)
 
 ## 案例研究
 - [映客直播使用夜莺监控，支撑5亿时间线节省8成费用](https://mp.weixin.qq.com/s/cfU4PY9yXCv_Dl8HcQme2g) - 映客@郑富强

@@ -83,4 +83,4 @@ labels = { region="local" }
 
 address 可以指定连接地址，如果想监控多个 oracle 实例，一个 address 显然不行了，就要把 instances 部分拷贝多份，即可做到监控多个 oracle 实例的效果。
 
-当然，更多信息请查阅[Categraf README](https://www.gitlink.org.cn/flashcat/categraf/tree/main/README.md)，README 中有 FAQ 和 QuickStart 的链接，可以帮助大家快速入门。
+当然，更多信息请查阅[Categraf README](https://www.gitlink.org.cn/flashcat/categraf/tree/main/README.md)，README 中有 FAQ 和 QuickStart 的链接，可以帮助大家快速入门。另外，大家也可以参考我的公众号文章《[讲解Categraf采集器](https://mp.weixin.qq.com/s/T69kkBzToHVh31D87xsrIg)》里边有3个视频教程介绍Categraf，公众号也欢迎大家关注，会持续更新监控相关的文章。
