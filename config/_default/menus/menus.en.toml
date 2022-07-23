@@ -35,8 +35,13 @@
 
 [[main]]
   name = "FAQ"
-  url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki"
+  url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki/faq"
   weight = 15
+
+[[main]]
+  name = "提问"
+  url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki/question"
+  weight = 16
 
 # [[main]]
 #   name = "Blog"
