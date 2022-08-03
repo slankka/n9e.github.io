@@ -25,6 +25,7 @@ toc: true
 - [3.1 夜莺页面功能介绍](https://mp.weixin.qq.com/s/6fZBGq0o1o4wVRlKdKSfrA)
 - [4.1 监控数据采集必知必会](https://mp.weixin.qq.com/s/fvpilwvqe0hAN8GE9j_Oig)
 - [4.2 讲解Categraf采集器](https://mp.weixin.qq.com/s/T69kkBzToHVh31D87xsrIg)
+- [4.3 手把手教你编写Categraf采集器](https://mp.weixin.qq.com/s/eeoRTeQrQwZ6iRvIqVozSA)
 
 ## 案例研究
 - [映客直播使用夜莺监控，支撑5亿时间线节省8成费用](https://mp.weixin.qq.com/s/cfU4PY9yXCv_Dl8HcQme2g) - 映客@郑富强
@@ -34,6 +35,10 @@ toc: true
 - [高科技Startup构建监控体系之路](/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/) - 若尘@贝联珠贯
 - [主流监控工具如何选？头部在线教育公司的监控选型落地全流程分享v](https://mp.weixin.qq.com/s/NaSzhC7NWZmsOmoo19Tn5w) - 于长夫
 
+## 部署
+
+- [使用ansible部署Categraf](https://github.com/xiaoziv/categraf-playbook)
+- [使用ansible部署telegraf、categraf](https://mp.weixin.qq.com/s/LkJj_U692Oe8UCcUoGOBgQ)
 
 ## 告警通知
 - [手把手教你接入钉钉告警](https://mp.weixin.qq.com/s/ayVaQJ8mEacnyMkyqE_rJg)
