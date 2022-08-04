@@ -25,7 +25,17 @@ toc: true
 - [3.1 夜莺页面功能介绍](https://mp.weixin.qq.com/s/6fZBGq0o1o4wVRlKdKSfrA)
 - [4.1 监控数据采集必知必会](https://mp.weixin.qq.com/s/fvpilwvqe0hAN8GE9j_Oig)
 - [4.2 讲解Categraf采集器](https://mp.weixin.qq.com/s/T69kkBzToHVh31D87xsrIg)
-- [4.3 手把手教你编写Categraf采集器](https://mp.weixin.qq.com/s/eeoRTeQrQwZ6iRvIqVozSA)
+- [4.3 手把手教你编写Categraf采集插件](https://mp.weixin.qq.com/s/eeoRTeQrQwZ6iRvIqVozSA)
+
+
+## 夜莺动态
+- [让工程师用上有设计感的监控工具，夜莺5.10来了](https://mp.weixin.qq.com/s/dbs8pfgC-23HUWlktyv1iQ) - 夜莺开发团队
+- [为夜莺监控，一键开启智能告警能力](https://mp.weixin.qq.com/s/Azx0Di08t_SnN9yiazrVRA) - 秦叶宁@快猫星云
+- [Categraf - 夜莺监控发布新轮子](https://mp.weixin.qq.com/s/IrOficG0Xdrc7F3bONKwHg) - 秦晓辉@快猫星云
+- [夜莺监控成为CCF托管开源项目](https://mp.weixin.qq.com/s/FTr5nkgSlqhiY9O1Xyi09g)  - laiwei@快猫星云
+- [云原生监控的十大趋势和特点](https://mp.weixin.qq.com/s/iOSc4jFRRv61kPdrZ85dnQ) - laiwei@快猫星云
+- [十年死磕，从一线工程师到CEO](https://mp.weixin.qq.com/s/k8Fgv9-4_7_39KX_eoG9pg) - laiwei@快猫星云
+
 
 ## 案例研究
 - [映客直播使用夜莺监控，支撑5亿时间线节省8成费用](https://mp.weixin.qq.com/s/cfU4PY9yXCv_Dl8HcQme2g) - 映客@郑富强
@@ -35,10 +45,11 @@ toc: true
 - [高科技Startup构建监控体系之路](/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/) - 若尘@贝联珠贯
 - [主流监控工具如何选？头部在线教育公司的监控选型落地全流程分享v](https://mp.weixin.qq.com/s/NaSzhC7NWZmsOmoo19Tn5w) - 于长夫
 
-## 部署
 
+## 部署
 - [使用ansible部署Categraf](https://github.com/xiaoziv/categraf-playbook)
 - [使用ansible部署telegraf、categraf](https://mp.weixin.qq.com/s/LkJj_U692Oe8UCcUoGOBgQ)
+
 
 ## 告警通知
 - [手把手教你接入钉钉告警](https://mp.weixin.qq.com/s/ayVaQJ8mEacnyMkyqE_rJg)
@@ -55,14 +66,6 @@ toc: true
 - [一文说透MySQL监控，使用Prometheus生态的Exporter](https://mp.weixin.qq.com/s/gyqXh1ZGnoOC6jg6xOp-IA)
 - [Vsphere-monitor数据上报夜莺V5监控](https://t.zsxq.com/feqF2JE)
 - [记n9e_server活跃告警 聚合规则写法](https://blog.csdn.net/woshi_1245/article/details/125218828) - 肖君
-
-
-## 夜莺动态
-- [Categraf - 夜莺监控发布新轮子](https://mp.weixin.qq.com/s/IrOficG0Xdrc7F3bONKwHg) - 秦晓辉@快猫星云
-- [夜莺监控成为CCF托管开源项目](https://mp.weixin.qq.com/s/FTr5nkgSlqhiY9O1Xyi09g)  - laiwei@快猫星云
-- [云原生监控的十大趋势和特点](https://mp.weixin.qq.com/s/iOSc4jFRRv61kPdrZ85dnQ) - laiwei@快猫星云
-- [十年死磕，从一线工程师到CEO](https://mp.weixin.qq.com/s/k8Fgv9-4_7_39KX_eoG9pg) - laiwei@快猫星云
-
 
 ## 藏经阁
 - 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://sourl.cn/spsLFC)
