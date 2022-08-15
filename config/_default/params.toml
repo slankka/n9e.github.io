@@ -62,7 +62,7 @@ copyRight = "© 2022 CCF·Nightingale, all rights reserved."
 # Alert
 alert = true
 alertDismissable = true
-alertText = '''<a class="alert-link" href="https://flashcat.cloud/" target="_blank">快猫团队</a> 提供夜莺商业技术支持，最低只要2.5万，<a href="https://market.cloud.tencent.com/products/35456#spec=%E5%AD%A3%E4%BB%98" class="alert-link">点此了解</a> 采购技术支持的客户附赠价值1.4万的 <a href="https://market.cloud.tencent.com/products/35696" target="_blank" class="alert-link">企业内训-构建企业级全方位监控体系</a>'''
+alertText = '''企业内训服务——如何构建企业级云原生监控体系，<a class="alert-link" href="https://mp.weixin.qq.com/s/q8jc-bY6E1hh3B1AxhxZdQ" target="_blank">了解更多</a>'''
 
 # Edit Page
 # repoHost [Github | Gitea | GitLab | Bitbucket | BitbucketServer ] is used for building the edit link based on git hoster
