@@ -27,6 +27,9 @@ toc: true
 - [4.2 讲解Categraf采集器](https://mp.weixin.qq.com/s/T69kkBzToHVh31D87xsrIg)
 - [4.3 手把手教你编写Categraf采集插件](https://mp.weixin.qq.com/s/eeoRTeQrQwZ6iRvIqVozSA)
 
+#### 连载：《说透Kubernetes云原生监控》
+- [1. Kubernetes云原生监控系列-概览](https://mp.weixin.qq.com/s/_MJjzOWEemUcC6lg1yriSw)
+- [2. Kubernetes云原生监控系列-环境鉴权与自动发现](https://mp.weixin.qq.com/s/UFqwQXqeKO7JxhUqHjYj2Q)
 
 ## 夜莺动态
 - [让工程师用上有设计感的监控工具，夜莺5.10来了](https://mp.weixin.qq.com/s/dbs8pfgC-23HUWlktyv1iQ) - 夜莺开发团队
@@ -57,7 +60,8 @@ toc: true
 - [使用notify.py接入阿里云语音通知](https://t.zsxq.com/VNniqbQ) - by 果
 
 
-## 各种经验
+## 经验杂谈
+- [服务稳定性保障的五大误解](https://mp.weixin.qq.com/s/G8W2cqVKqT2AlZxWWXU0Rw) - by 华明
 - [弃用Prometheus，搭建单机版本的VictoriaMetrics](https://t.zsxq.com/rrr7Iau) - by SL
 - [使用pg作为数据库替换MySQL](https://t.zsxq.com/MnE6IA2)
 - [一键部署夜莺到Kubernetes](https://t.zsxq.com/yJeM7QR) - by 陶柒
@@ -70,6 +74,7 @@ toc: true
 ## 藏经阁
 - 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://sourl.cn/spsLFC)
 - Flashcat平台介绍材料（可用于你在团队内部分享/推广Flashcat平台），点击下载[PDF版本](https://sourl.cn/G5iZCT)
+- Flashcat平台一分钟视频，快速预览Flashcat平台功能特性，点击[预览](https://flashcat.cloud/videos/flashcat.mp4)
 
 
 ## Telegraf
