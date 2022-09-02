@@ -81,7 +81,32 @@
 #   url = "https://twitter.com/getdoks"
 #   weight = 20
 
-# [[footer]]
-#   name = "Privacy"
-#   url = "/privacy-policy/"
-#   weight = 10
+[[footer]]
+  name = "夜莺社区治理架构"
+  url = "https://github.com/ccfos/nightingale/blob/main/doc/community-governance.md"
+  weight = 1
+
+[[footer]]
+  name = "PMC"
+  url = "https://github.com/ccfos/nightingale/blob/main/doc/pmc.md"
+  weight = 2
+
+[[footer]]
+  name = "Committers"
+  url = "https://github.com/ccfos/nightingale/blob/main/doc/committers.md"
+  weight = 3
+
+[[footer]]
+  name = "Active Contributors"
+  url = "https://github.com/ccfos/nightingale/blob/main/doc/active-contributors.md"
+  weight = 4
+
+[[footer]]
+  name = "All Contributors"
+  url = "https://github.com/ccfos/nightingale/blob/main/doc/contributors.md"
+  weight = 5
+
+[[footer]]
+  name = "End Users"
+  url = "https://github.com/ccfos/nightingale/blob/main/doc/end-users.md"
+  weight = 6
