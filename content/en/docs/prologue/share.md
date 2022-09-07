@@ -88,3 +88,10 @@ toc: true
 - [telegraf采集Nacos](https://articles.zsxq.com/id_dm7ri6vrlbte.html) - 郭什么磊°
 - [使用Telegraf做夜莺5.0的数据采集，样例包含Linux基本信息采集、MySQL、Redis的采集](https://mp.weixin.qq.com/s/-T4sSV0uSyrdzbhgzusCqg) - by 柴今栋@艾派
 
+## 监控大盘
+
+每个 Categraf 的[插件目录](https://github.com/flashcatcloud/categraf/tree/main/inputs)下，大都会有监控大盘的 json 文件，如果社区有用户自己制作的大盘希望分享出来，会罗列在这里
+
+- [vsphere-monitor的监控大盘](https://gist.github.com/guoyl1997/cfc76f54434302d524acce874ca80559)，[采集方式](https://articles.zsxq.com/id_j501m7mtnor2.html)
+
+
