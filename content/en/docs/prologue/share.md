@@ -30,6 +30,8 @@ toc: true
 #### 连载：《说透Kubernetes云原生监控》
 - [1. Kubernetes云原生监控系列-概览](https://mp.weixin.qq.com/s/_MJjzOWEemUcC6lg1yriSw)
 - [2. Kubernetes云原生监控系列-环境鉴权与自动发现](https://mp.weixin.qq.com/s/UFqwQXqeKO7JxhUqHjYj2Q)
+- [3. Kubernetes控制面组件指标梳理](https://mp.weixin.qq.com/s/KQjVbc7ArtfJ3PHM-BHdPw)
+
 
 ## 夜莺动态
 - [让工程师用上有设计感的监控工具，夜莺5.10来了](https://mp.weixin.qq.com/s/dbs8pfgC-23HUWlktyv1iQ) - 夜莺开发团队
@@ -61,6 +63,7 @@ toc: true
 
 
 ## 经验杂谈
+- [SLO新解，一种行之有效的故障处理方法](https://mp.weixin.qq.com/s/dA-7o-7wv0x24pDf0TXJag) - by 华明
 - [服务稳定性保障的五大误解](https://mp.weixin.qq.com/s/G8W2cqVKqT2AlZxWWXU0Rw) - by 华明
 - [弃用Prometheus，搭建单机版本的VictoriaMetrics](https://t.zsxq.com/rrr7Iau) - by SL
 - [使用pg作为数据库替换MySQL](https://t.zsxq.com/MnE6IA2)
