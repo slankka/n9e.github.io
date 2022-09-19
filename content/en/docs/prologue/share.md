@@ -63,6 +63,7 @@ toc: true
 
 
 ## 经验杂谈
+- [稳定性保障一号位的进击之旅](https://mp.weixin.qq.com/s/glu6nVwllzbGaS5UO7fWSg) - by laiwei
 - [SLO新解，一种行之有效的故障处理方法](https://mp.weixin.qq.com/s/dA-7o-7wv0x24pDf0TXJag) - by 华明
 - [服务稳定性保障的五大误解](https://mp.weixin.qq.com/s/G8W2cqVKqT2AlZxWWXU0Rw) - by 华明
 - [弃用Prometheus，搭建单机版本的VictoriaMetrics](https://t.zsxq.com/rrr7Iau) - by SL
