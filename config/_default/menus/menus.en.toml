@@ -33,15 +33,20 @@
   url = "/docs/prologue/introduction/"
   weight = 10
 
-[[main]]
-  name = "FAQ"
-  url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki/faq"
-  weight = 15
+# [[main]]
+#   name = "FAQ"
+#   url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki/faq"
+#   weight = 15
 
 [[main]]
-  name = "提问"
-  url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki/question"
+  name = "论坛"
+  url = "https://github.com/ccfos/nightingale/discussions"
   weight = 16
+
+[[main]]
+  name = "商业版"
+  url = "https://flashcat.cloud/"
+  weight = 17
 
 # [[main]]
 #   name = "Blog"
