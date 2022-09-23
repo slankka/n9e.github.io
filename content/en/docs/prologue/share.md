@@ -61,6 +61,13 @@ toc: true
 - [修改notify.py为夜莺增加短信通知能力](https://mp.weixin.qq.com/s/GPIQ4-8o1z7bNJq7M7IvXg) - by 柴今栋@艾派
 - [使用notify.py接入阿里云语音通知](https://t.zsxq.com/VNniqbQ) - by 果
 
+## 监控实战
+- [JVM监控调研对比](https://www.yuque.com/docs/share/67b03a91-5b83-4a4c-bc33-c7b970774b93) - by 国泰君安期货郑绪祺
+- [Oracle的简单监控实现](https://mp.weixin.qq.com/s/c2mW2YfyMaeyITWcUDNUBg) - by 柴今栋@艾派 - 备注：Categraf新版已经内置支持
+- [RocketMQ简单监控的实现](https://mp.weixin.qq.com/s/CyYdss6kFlo9qRuGfM_OlA) - by 柴今栋@艾派
+- [一文说透MySQL监控，使用Prometheus生态的Exporter](https://mp.weixin.qq.com/s/gyqXh1ZGnoOC6jg6xOp-IA)
+- [Vsphere-monitor数据上报夜莺V5监控](https://t.zsxq.com/feqF2JE)
+
 
 ## 经验杂谈
 - [稳定性保障一号位的进击之旅](https://mp.weixin.qq.com/s/glu6nVwllzbGaS5UO7fWSg) - by laiwei
@@ -69,10 +76,6 @@ toc: true
 - [弃用Prometheus，搭建单机版本的VictoriaMetrics](https://t.zsxq.com/rrr7Iau) - by SL
 - [使用pg作为数据库替换MySQL](https://t.zsxq.com/MnE6IA2)
 - [一键部署夜莺到Kubernetes](https://t.zsxq.com/yJeM7QR) - by 陶柒
-- [Oracle的简单监控实现](https://mp.weixin.qq.com/s/c2mW2YfyMaeyITWcUDNUBg) - by 柴今栋@艾派
-- [RocketMQ简单监控的实现](https://mp.weixin.qq.com/s/CyYdss6kFlo9qRuGfM_OlA) - by 柴今栋@艾派
-- [一文说透MySQL监控，使用Prometheus生态的Exporter](https://mp.weixin.qq.com/s/gyqXh1ZGnoOC6jg6xOp-IA)
-- [Vsphere-monitor数据上报夜莺V5监控](https://t.zsxq.com/feqF2JE)
 - [记n9e_server活跃告警 聚合规则写法](https://blog.csdn.net/woshi_1245/article/details/125218828) - 肖君
 
 ## 藏经阁
