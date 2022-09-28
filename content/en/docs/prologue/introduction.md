@@ -83,7 +83,7 @@ Nightingale 可以接入多个 Prometheus，可以允许用户在页面上配置
 
 ## 社区版 vs 企业版
 
-- 欢迎查阅由[快猫星云](https://flashcat.cloud)提供的企业级解决方案，在产品功能和技术支持方面提供企业级的服务，具体请查阅 => [夜莺社区版和企业版的区别](../opensource-vs-enterprise)；
+- 欢迎查阅由[快猫星云](https://flashcat.cloud)提供的企业级解决方案，在产品功能和技术支持方面提供企业级的服务，具体请查阅 => [夜莺社区版和企业版的区别](/docs/prologue/opensource-vs-enterprise/)；
 - 欢迎下载快猫星云 Flashcat 平台的介绍材料 => [PDF版本](https://sourl.cn/G5iZCT)；
 - Flashcat 平台一分钟视频介绍：https://flashcat.cloud/videos/flashcat.mp4 ；
 - 如果你想进一步试用和体验 Flashcat 平台 http://demo.flashcat.cloud，可以添加微信小助手 `flashcats`，获取账号在线体验账号；
