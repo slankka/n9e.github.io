@@ -62,7 +62,7 @@ copyRight = "© 2022 CCF·Nightingale, all rights reserved."
 # Alert
 alert = true
 alertDismissable = true
-alertText = '''企业内训服务——如何构建企业级云原生监控体系，<a class="alert-link" href="https://mp.weixin.qq.com/s/q8jc-bY6E1hh3B1AxhxZdQ" target="_blank">了解更多</a>'''
+alertText = '''企业内训服务——如何构建企业级云原生监控体系，<a class="alert-link" href="/docs/prologue/consulting" target="_blank">了解更多</a>'''
 
 # Edit Page
 # repoHost [Github | Gitea | GitLab | Bitbucket | BitbucketServer ] is used for building the edit link based on git hoster
