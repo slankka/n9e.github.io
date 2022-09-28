@@ -31,7 +31,14 @@ toc: true
 - [1. Kubernetes云原生监控系列-概览](https://mp.weixin.qq.com/s/_MJjzOWEemUcC6lg1yriSw)
 - [2. Kubernetes云原生监控系列-环境鉴权与自动发现](https://mp.weixin.qq.com/s/UFqwQXqeKO7JxhUqHjYj2Q)
 - [3. Kubernetes控制面组件指标梳理](https://mp.weixin.qq.com/s/KQjVbc7ArtfJ3PHM-BHdPw)
+- [4. Kubernetes Node 组件指标梳理](https://mp.weixin.qq.com/s/QzidC1zvPFY1FqUofWfbbg)
 
+#### Flashtalk
+> [第一期 2022-06-16] 夜莺监控社区动态交流
+  - [夜莺近期动态-快猫-秦晓辉-20220616.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/夜莺近期动态-快猫-秦晓辉-20220616.pdf)
+  - [夜莺智能告警介绍-快猫-秦叶宁-20220616.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/夜莺智能告警介绍-快猫-秦叶宁-20220616.pdf)
+> [第二期 2022-09-27] 云原生监控系列专题 
+  - [Kubernetes云原生监控-20220927.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes云原生监控-20220927.pdf)
 
 ## 夜莺动态
 - [让工程师用上有设计感的监控工具，夜莺5.10来了](https://mp.weixin.qq.com/s/dbs8pfgC-23HUWlktyv1iQ) - 夜莺开发团队
@@ -40,6 +47,11 @@ toc: true
 - [夜莺监控成为CCF托管开源项目](https://mp.weixin.qq.com/s/FTr5nkgSlqhiY9O1Xyi09g)  - laiwei@快猫星云
 - [云原生监控的十大趋势和特点](https://mp.weixin.qq.com/s/iOSc4jFRRv61kPdrZ85dnQ) - laiwei@快猫星云
 - [十年死磕，从一线工程师到CEO](https://mp.weixin.qq.com/s/k8Fgv9-4_7_39KX_eoG9pg) - laiwei@快猫星云
+
+## 藏经阁
+- 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://sourl.cn/spsLFC)
+- Flashcat平台介绍材料（可用于你在团队内部分享/推广Flashcat平台），点击下载[PDF版本](https://sourl.cn/G5iZCT)
+- Flashcat平台一分钟视频，快速预览Flashcat平台功能特性，点击[预览](https://flashcat.cloud/videos/flashcat.mp4)
 
 
 ## 案例研究
@@ -77,11 +89,6 @@ toc: true
 - [使用pg作为数据库替换MySQL](https://t.zsxq.com/MnE6IA2)
 - [一键部署夜莺到Kubernetes](https://t.zsxq.com/yJeM7QR) - by 陶柒
 - [记n9e_server活跃告警 聚合规则写法](https://blog.csdn.net/woshi_1245/article/details/125218828) - 肖君
-
-## 藏经阁
-- 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://sourl.cn/spsLFC)
-- Flashcat平台介绍材料（可用于你在团队内部分享/推广Flashcat平台），点击下载[PDF版本](https://sourl.cn/G5iZCT)
-- Flashcat平台一分钟视频，快速预览Flashcat平台功能特性，点击[预览](https://flashcat.cloud/videos/flashcat.mp4)
 
 
 ## Telegraf
