@@ -1,5 +1,5 @@
 ---
-title: "商业版"
+title: "企业版"
 description: "夜莺（ Nightingale ）社区版（开源版）和商业版的区别"
 ---
 
