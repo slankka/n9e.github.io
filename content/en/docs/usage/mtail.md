@@ -1,6 +1,6 @@
 ---
-title: "日志监控"
-description: "夜莺（ Nightingale ）通过 mtail 监控日志"
+title: "Mtail日志监控"
+description: "夜莺（ Nightingale ）通过 mtail 监控日志。Mtail日志告警。"
 lead: ""
 date: 2020-10-06T08:48:57+00:00
 lastmod: 2020-10-06T08:48:57+00:00
