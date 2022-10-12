@@ -38,8 +38,9 @@ toc: true
 > [第一期 2022-06-16] 夜莺监控社区动态交流
   - [夜莺近期动态-快猫-秦晓辉-20220616.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/夜莺近期动态-快猫-秦晓辉-20220616.pdf)
   - [夜莺智能告警介绍-快猫-秦叶宁-20220616.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/夜莺智能告警介绍-快猫-秦叶宁-20220616.pdf)
-> [第二期 2022-09-27] 云原生监控系列专题 
+> [第二期 2022-09-27 ~ ] 云原生监控系列专题 
   - [Kubernetes云原生监控-20220927.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes云原生监控-20220927.pdf)
+  - [Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf)
 
 ## 夜莺动态
 - [基于夜莺快速构建日志告警平台](https://mp.weixin.qq.com/s/cGrG1GKfiRwKH9QnXvLQbQ) - 秦叶宁@快猫星云
