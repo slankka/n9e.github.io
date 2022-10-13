@@ -4,7 +4,7 @@
 title = "Nightingale"
 titleSeparator = "-"
 titleAddition = "夜莺云原生监控"
-description = "云原生监控, 夜莺监控, Kubernetes Monitoring, 开源监控, 国产监控, CCF夜莺"
+description = "夜莺监控(官网),云原生监控,Kubernetes Monitoring,开源监控,国产监控,CCF夜莺"
 
 ## Documentation
 # docsVersion = "0.3"
