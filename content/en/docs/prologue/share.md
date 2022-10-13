@@ -15,9 +15,10 @@ toc: true
 
 本节罗列社区用户的分享文章，欢迎大家把自己的心得文章链接放到这里，让整个社区受益，相互交流：
 
-## 龙渊秦五专栏
 
-#### 连载：《说透运维监控系统》
+## 专栏
+
+#### 龙渊秦五专栏连载：《说透运维监控系统》
 - [1.1 监控系统概述](https://mp.weixin.qq.com/s/K4IbBqnn0-X4p3b_6Z1Sbg)
 - [1.2 业界方案概述](https://mp.weixin.qq.com/s/yFld5fWDYYtseo-Zjwivxg)
 - [2.1 安装夜莺监控系统](https://mp.weixin.qq.com/s/iEC4pfL1TgjMDOWYh8H-FA)
@@ -27,22 +28,24 @@ toc: true
 - [4.2 讲解Categraf采集器](https://mp.weixin.qq.com/s/T69kkBzToHVh31D87xsrIg)
 - [4.3 手把手教你编写Categraf采集插件](https://mp.weixin.qq.com/s/eeoRTeQrQwZ6iRvIqVozSA)
 
-#### 连载：《说透Kubernetes云原生监控》
+#### 云原生监控连载：《说透Kubernetes云原生监控》
 - [1. Kubernetes云原生监控系列-概览](https://mp.weixin.qq.com/s/_MJjzOWEemUcC6lg1yriSw)
 - [2. Kubernetes云原生监控系列-环境鉴权与自动发现](https://mp.weixin.qq.com/s/UFqwQXqeKO7JxhUqHjYj2Q)
 - [3. Kubernetes控制面组件指标梳理](https://mp.weixin.qq.com/s/KQjVbc7ArtfJ3PHM-BHdPw)
 - [4. Kubernetes Node 组件指标梳理](https://mp.weixin.qq.com/s/QzidC1zvPFY1FqUofWfbbg)
 
-#### Flashtalk
+#### FlashTalk
 > [第一期 2022-06-16] 夜莺监控社区动态交流
   - [夜莺近期动态-快猫-秦晓辉-20220616.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/夜莺近期动态-快猫-秦晓辉-20220616.pdf)
   - [夜莺智能告警介绍-快猫-秦叶宁-20220616.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/夜莺智能告警介绍-快猫-秦叶宁-20220616.pdf)
-> [第二期 2022-09-27] 云原生监控系列专题 
+> [第二期 2022-09-27 ~ ] 云原生监控系列专题 
   - [Kubernetes云原生监控-20220927.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes云原生监控-20220927.pdf)
+  - [Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf)
 
 ## 夜莺动态
-- [让工程师用上有设计感的监控工具，夜莺5.10来了](https://mp.weixin.qq.com/s/dbs8pfgC-23HUWlktyv1iQ) - 夜莺开发团队
+- [基于夜莺快速构建日志告警平台](https://mp.weixin.qq.com/s/cGrG1GKfiRwKH9QnXvLQbQ) - 秦叶宁@快猫星云
 - [为夜莺监控，一键开启智能告警能力](https://mp.weixin.qq.com/s/Azx0Di08t_SnN9yiazrVRA) - 秦叶宁@快猫星云
+- [让工程师用上有设计感的监控工具，夜莺5.10来了](https://mp.weixin.qq.com/s/dbs8pfgC-23HUWlktyv1iQ) - 夜莺开发团队
 - [Categraf - 夜莺监控发布新轮子](https://mp.weixin.qq.com/s/IrOficG0Xdrc7F3bONKwHg) - 秦晓辉@快猫星云
 - [夜莺监控成为CCF托管开源项目](https://mp.weixin.qq.com/s/FTr5nkgSlqhiY9O1Xyi09g)  - laiwei@快猫星云
 - [云原生监控的十大趋势和特点](https://mp.weixin.qq.com/s/iOSc4jFRRv61kPdrZ85dnQ) - laiwei@快猫星云
