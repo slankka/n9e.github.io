@@ -48,6 +48,11 @@
   url = "https://flashcat.cloud/"
   weight = 17
 
+[[main]]
+  name = "布道师"
+  url = "https://www.wjx.cn/vm/hkV2jiV.aspx"
+  weight = 18
+
 # [[main]]
 #   name = "Blog"
 #   url = "/blog/"
