@@ -66,6 +66,7 @@ toc: true
 - 夜莺功能介绍材料（可用于你在团队内部分享/推广夜莺监控），点击下载[PDF版本](https://sourl.cn/spsLFC)
 - Flashcat平台介绍材料（可用于你在团队内部分享/推广Flashcat平台），点击下载[PDF版本](https://sourl.cn/G5iZCT)
 - Flashcat平台一分钟视频，快速预览Flashcat平台功能特性，点击[预览](https://flashcat.cloud/videos/flashcat.mp4)
+- [Zabbix 和夜莺监控横评对比](https://mp.weixin.qq.com/s/qii3TEgORUEIwWdPrjxSxg)
 
 
 ## 案例研究
