@@ -124,5 +124,5 @@ MySQL 全局就部署一个主从集群就可以了，n9e-webapi、n9e-server都
 
 首先，n9e-server 是随着时序库走的，贵司有几套时序库，就要部署几套 n9e-server，每套 n9e-server 要取个名字，在 server.conf 中有个 ClusterName 的配置来标识 n9e-server 集群的名字，每套 n9e-server 可以只有一个实例，可以有多个实例组成集群，一套 n9e-server 集群内的多个实例，其 ClusterName 要保持一致。不同的 n9e-server 集群，ClusterName 要不同。
 
-如果有多套时序库，其连接信息都要配置到 n9e-webapi 的配置文件 webapi.conf 中，即配置多个 `[[Clusters]]` ，每个 Cluster 有个 Name 的配置，要和 server.conf 中的 ClusterName 保持一致。
+如果有多套时序库，其连接信息都要配置到 n9e-webapi 的配置文件 webapi.conf 中，即配置多个 `[[Clusters]]` ，每个 Cluster 有个 Name 的配置，要和 server.conf 中的 ClusterName 保持一致。请注意，你使用的采集器，例如telegraf，需要上报到相应n9e server所在的ip:19000;否则，上报上去的数据将无法区分集群。
 
