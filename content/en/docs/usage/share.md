@@ -1,17 +1,19 @@
 ---
-title: "社区分享"
-description: "夜莺监控社区分享"
+title: "藏经阁"
+description: "夜莺监控藏经阁，相关分享资料，网友分享资料"
 lead: ""
-date: 2020-11-16T13:59:39+01:00
-lastmod: 2020-11-16T13:59:39+01:00
+date: 2020-10-06T08:48:57+00:00
+lastmod: 2020-10-06T08:48:57+00:00
 draft: false
 images: []
 menu:
   docs:
-    parent: "prologue"
-weight: 110
+    parent: "usage"
+weight: 700
 toc: true
 ---
+
+
 
 本节罗列社区用户的分享文章，欢迎大家把自己的心得文章链接放到这里，让整个社区受益，相互交流：
 
@@ -116,5 +118,3 @@ toc: true
 每个 Categraf 的[插件目录](https://github.com/flashcatcloud/categraf/tree/main/inputs)下，大都会有监控大盘的 json 文件，如果社区有用户自己制作的大盘希望分享出来，会罗列在这里
 
 - [vsphere-monitor的监控大盘](https://gist.github.com/guoyl1997/cfc76f54434302d524acce874ca80559)，[采集方式](https://articles.zsxq.com/id_j501m7mtnor2.html)
-
-
