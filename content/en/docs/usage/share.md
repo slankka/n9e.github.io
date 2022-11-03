@@ -55,6 +55,8 @@ toc: true
 > [第二期 2022-09-27 ~ ] 云原生监控系列专题 
   - [Kubernetes云原生监控-20220927.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes云原生监控-20220927.pdf)
   - [Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf)
+> [第三期 2022-11-03] 运维转型探索
+  - [途游邹轶-运维转型探索：打造研运一体化敏捷组织](https://tuyoo.feishu.cn/docx/doxcnGMuijglK6NdENYC2vD7KKh)
 
 ## 夜莺动态
 - [基于夜莺快速构建日志告警平台](https://mp.weixin.qq.com/s/cGrG1GKfiRwKH9QnXvLQbQ) - 秦叶宁@快猫星云
