@@ -20,6 +20,10 @@ toc: true
 
 这里给大家介绍一个Google出品的小工具，[mtail](https://github.com/google/mtail)，mtail就是流式读取日志，通过正则表达式匹配的方式从日志中提取metrics指标，这种方式可以利用目标机器的算力，不过如果量太大，可能会影响目标机器上的业务程序，另外一个好处是无侵入性，不需要业务埋点，如果业务程序是第三方供应商提供的，我们改不了其代码，mtail此时就非常合适了。当然了，如果业务程序是我们公司的人自己写的，那还是建议用埋点的方式采集指标，mtail只是作为一个补充吧。
 
+## 更新
+
+从 Categraf v0.2.17 开始，我们把 mtail 整合到了 Categraf 中，可以少部署一堆进程了，详情参考：《[从应用日志中提取监控metrics](https://flashcat.cloud/blog/mtail/)》，这个文章博客的内容已经非常详细，本节文档后面的内容理论上不用看了。
+
 ## mtail简介
 
 mtail的使用方案，参考如下两个文档（下载的话参考[Releases](https://github.com/google/mtail/releases)页面）：
