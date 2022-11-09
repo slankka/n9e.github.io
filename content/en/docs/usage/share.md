@@ -57,6 +57,8 @@ toc: true
   - [Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/flashtalk/Kubernetes组件监控讲解-快猫-孔飞-20221011.pdf)
 > [第三期 2022-11-03] 运维转型探索
   - [途游邹轶-运维转型探索：打造研运一体化敏捷组织](https://tuyoo.feishu.cn/docx/doxcnGMuijglK6NdENYC2vD7KKh)
+> [ITPub开源小秀场 2022-11-09]
+  - [从 Open-Falcon 到夜莺监控, 看现代化监控系统的发展和演进](https://code.gitlink.org.cn/api/v1/repos/flashcat/static/raw/from-openfalcon-to-n9e.pdf)
 
 ## 夜莺动态
 - [基于夜莺快速构建日志告警平台](https://mp.weixin.qq.com/s/cGrG1GKfiRwKH9QnXvLQbQ) - 秦叶宁@快猫星云
