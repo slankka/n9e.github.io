@@ -60,7 +60,7 @@ footer = "&copy; 2022 CCF·Nightingale, all rights reserved."
 copyRight = "© 2022 CCF·Nightingale, all rights reserved."
 
 # Alert
-alert = true
+alert = false
 alertDismissable = true
 alertText = '''夜莺技术团队企业行：稳定性建设经验分享、技术交流、收集监控需求为下个版本做准备，<a class="alert-link" href="https://www.wjx.cn/vm/YhqWajx.aspx" target="_blank">点此报名</a>'''
 
