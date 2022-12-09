@@ -38,20 +38,20 @@
 #   url = "https://www.gitlink.org.cn/ccfos/nightingale/wiki/faq"
 #   weight = 15
 
-[[main]]
-  name = "论坛"
-  url = "https://github.com/ccfos/nightingale/discussions"
-  weight = 16
+# [[main]]
+#   name = "论坛"
+#   url = "https://github.com/ccfos/nightingale/discussions"
+#   weight = 16
 
 [[main]]
   name = "商业版"
   url = "https://flashcat.cloud/"
   weight = 17
 
-[[main]]
-  name = "布道师"
-  url = "https://www.wjx.cn/vm/hkV2jiV.aspx"
-  weight = 18
+# [[main]]
+#   name = "布道师"
+#   url = "https://www.wjx.cn/vm/hkV2jiV.aspx"
+#   weight = 18
 
 # [[main]]
 #   name = "Blog"
