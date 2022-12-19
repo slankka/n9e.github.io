@@ -13,9 +13,12 @@ weight: 700
 toc: true
 ---
 
-
-
 本节罗列社区用户的分享文章，欢迎大家把自己的心得文章链接放到这里，让整个社区受益，相互交流：
+
+## FAQ
+
+- [夜莺 FAQ](https://www.gitlink.org.cn/ccfos/nightingale/wiki/faq)
+- [Categraf FAQ](https://www.gitlink.org.cn/flashcat/categraf/wiki/FAQ)
 
 
 ## 专栏
