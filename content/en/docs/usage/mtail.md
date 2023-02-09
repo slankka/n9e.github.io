@@ -22,7 +22,7 @@ toc: true
 
 ## 更新
 
-从 Categraf v0.2.17 开始，我们把 mtail 整合到了 Categraf 中，可以少部署一堆进程了，详情参考：《[从应用日志中提取监控metrics](https://flashcat.cloud/blog/mtail/)》，这个文章博客的内容已经非常详细，本节文档后面的内容理论上不用看了。
+从 Categraf v0.2.17 开始，我们把 mtail 整合到了 Categraf 中，可以少部署一堆进程了，详情参考：《[从应用日志中提取监控metrics](https://flashcat.cloud/blog/log-monitoring-mtail/)》，这个文章博客的内容已经非常详细，本节文档后面的内容理论上不用看了。
 
 ## mtail简介
 
