@@ -13,4 +13,20 @@ weight: 720
 toc: true
 ---
 
-## TODO
+## Configuration
+
+Mofidy the configuration item `dd_url` in the file `/etc/datadog-agent/datadog.yaml`.
+
+```yaml
+dd_url: http://nightingale-address/datadog
+```
+
+`nightingale-address` is your Nightingale address.
+
+## Restart
+
+Restart the Datadog-Agent.
+
+```bash
+systemctl restart datadog-agent
+```
