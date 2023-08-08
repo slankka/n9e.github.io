@@ -14,7 +14,7 @@ defaultMarkdownHandler = "goldmark"
 
 [highlight]
   codeFences = false
-  guessSyntax = false
+  guessSyntax = true
   hl_Lines = ""
   lineNoStart = 1
   lineNos = false

@@ -6,15 +6,15 @@
     </div>
     <div class="col-lg-12 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href="https://flashcat.cloud/docs/content/flashcat-monitor/nightingale/introduction/" role="button">立即开始</a>
-      <p class="meta">Nightingale | 夜莺监控，一款先进的开源云原生监控分析系统，采用 All-In-One 的设计，集数据采集、可视化、监控告警、数据分析于一体，与云原生生态紧密集成，提供开箱即用的企业级监控分析和告警能力。于 2022 年 5 月 11 日，捐赠予中国计算机学会开源发展委员会(CCF ODC)，为 CCF ODC 成立后接受捐赠的首个开源项目。</p>
+      <a class="btn btn-primary btn-lg px-4 mb-2" href="{{ .Params.startLink }}" role="button">{{ .Params.buttonText }}</a>
+      <p class="meta">{{ .Params.metaText | safeHTML }}</p>
     </div>
   </div>
 </section>
 {{ end }}
 
 {{ define "sidebar-prefooter" }}
-  {{ if eq $.Site.Language.LanguageName "English" }}
+  {{ if eq $.Site.Language.LanguageName "Chinese" }}
   <section class="section section-sm">
     <div class="container">
       <div class="row justify-content-center text-center">
@@ -43,6 +43,39 @@
         <div class="col-lg-5">
           <h2 class="h4">开放社区</h2>
           <p>托管于<a target="_blank" href="https://www.ccf.org.cn/kyfzwyh/">中国计算机学会开源发展委员会</a>，有<a target="_blank" href="https://flashcat.cloud/">快猫星云</a>和众多公司的持续投入，和数千名社区用户的积极参与，以及夜莺监控项目清晰明确的定位，都保证了夜莺开源社区健康、长久的发展。活跃、专业的社区用户也在持续沉淀更多的最佳实践于产品中</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ else }}
+  <section class="section section-sm">
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-5">
+          <h2 class="h4">Out of the box</h2>
+          <p>Supports Docker, Helm Chart, cloud services and other deployment methods; integrates data collection, monitoring, and visualization; built-in monitoring dashboards, shortcut views, and alerting rule templates, which can be imported for quick use; dramatically reduces the cost of construction, learning, and use of cloud-native monitoring systems.</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">Professional alerting</h2>
+          <p>Visualized alerting configuration and management, support for rich alerting rules, provide muting rules, subscription rules configuration capabilities, support for multiple alarm delivery channels, support for alarm self-healing, alarm event management, etc.</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">Cloud-native</h2>
+          <p>Rapidly build an enterprise-grade cloud-native monitoring system in a turnkey manner, supporting multiple collectors such as Categraf, Telegraf, Grafana-agent, etc., multiple databases such as Prometheus, VictoriaMetrics, M3DB, ElasticSearch, etc., and compatibility with Grafana dashboards, for seamless integration into the cloud-native ecosystem.</p>
+        </div>
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-5">
+          <h2 class="h4">High performance, high availability</h2>
+          <p>Thanks to Nightingale's multi-data source management engine, and Nightingale's excellent architectural design on the engine side, with the help of high-performance timing libraries, it can satisfy hundreds of millions of timeline collection, storage, alarm analysis scenarios, saving a lot of costs; Nightingale monitoring components can be horizontally scalable, with no single point, and have been deployed in thousands of enterprises, and have withstood the rigorous production practice test!</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">Flexible scaling, centralized management</h2>
+          <p>Nightingale can be deployed in a 1-core 1G cloud host, can be deployed in hundreds of machines clustered, can be run in K8s; can also be timing libraries, alarm engines and other components sunk to each machine room, each Region, taking into account the edge of the deployment and the centralized unified management, to solve the problem of fragmentation of the data, the lack of a unified view of the problem.</p>
+        </div>
+        <div class="col-lg-5">
+          <h2 class="h4">Open community</h2>
+          <p>Hosted by the Open Source Development Committee of the China Computer Federation, with the continuous investment of Faster Cat Nebula and many other companies, and the active participation of thousands of community users, as well as the clear positioning of the Nightingale monitoring project, have ensured that the Nightingale open source community is healthy and long-lasting development. The active and professional community users are also continuing to precipitate more and more best practices in the product.</p>
         </div>
       </div>
     </div>

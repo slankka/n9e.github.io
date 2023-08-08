@@ -5,9 +5,9 @@
 #   url = "/docs/prologue/"
 
 [[main]]
-  name = "Docs"
+  name = "文档"
   identifier = "docs"
-  url = "/docs/prologue/introduction/"
+  url = "https://flashcat.cloud/docs/"
   weight = 10
 
 [[social]]
