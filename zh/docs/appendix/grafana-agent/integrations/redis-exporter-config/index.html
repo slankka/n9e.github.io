@@ -1,0 +1,267 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-500.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><link rel=stylesheet href=https://n9e.github.io/main.ac11ddb4c05d63d9306a2e99fe8ab3a89c059bd13af027151f267942e6ea1a6d4242aacd51b034166a296b7833f683a4395206df505071159d1835d8158732b5.css integrity="sha512-rBHdtMBdY9kwai6Z/oqzqJwFm9E68CcVHyZ5QubqGm1CQqrNUbA0Fmopa3gz9oOkOVIG31BQcRWdGDXYFYcytQ==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><meta name=robots content="index, follow"><meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><title>Redis Exporter - 夜莺云原生监控</title><meta name=description content="grafana-agent内置了redis_exporter，可以采集Redis server的运行指标。
+目前grafana-agent，只支持配置一个Redis server地址，对其进行数据采集。如果您希望采集多个redis实例的metrics数据，那么需要启动多个grafana-agent实例，并通过relabel_configs来区分来自不同redis实例的数据。
+配置并启用redis_exporter # redis_exporter: enabled: true redis_addr: &amp;quot;redis-2:6379&amp;quot; relabel_configs: - source_labels: [__address__] target_label: instance replacement: redis-2  我们强烈推荐您使用独立的账号运行grafana-agent，并做好访问redis实例的最小化授权，避免过度授权带来的安全隐患，更多可以参考official documentation。
+采集的关键指标列表 # redis_active_defrag_running: When activedefrag is enabled, this indicates whether defragmentation is currently active, and the CPU percentage it intends to utilize. redis_allocator_active_bytes: Total bytes in the allocator active pages, this includes external-fragmentation. redis_allocator_allocated_bytes: Total bytes allocated form the allocator, including internal-fragmentation. Normally the same as used_memory. redis_allocator_frag_bytes: Delta between allocator_active and allocator_allocated."><link rel=canonical href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="Redis Exporter"><meta property="og:description" content="grafana-agent内置了redis_exporter，可以采集Redis server的运行指标。
+目前grafana-agent，只支持配置一个Redis server地址，对其进行数据采集。如果您希望采集多个redis实例的metrics数据，那么需要启动多个grafana-agent实例，并通过relabel_configs来区分来自不同redis实例的数据。
+配置并启用redis_exporter # redis_exporter: enabled: true redis_addr: &#34;redis-2:6379&#34; relabel_configs: - source_labels: [__address__] target_label: instance replacement: redis-2  我们强烈推荐您使用独立的账号运行grafana-agent，并做好访问redis实例的最小化授权，避免过度授权带来的安全隐患，更多可以参考official documentation。
+采集的关键指标列表 # redis_active_defrag_running: When activedefrag is enabled, this indicates whether defragmentation is currently active, and the CPU percentage it intends to utilize. redis_allocator_active_bytes: Total bytes in the allocator active pages, this includes external-fragmentation. redis_allocator_allocated_bytes: Total bytes allocated form the allocator, including internal-fragmentation. Normally the same as used_memory. redis_allocator_frag_bytes: Delta between allocator_active and allocator_allocated."><meta property="og:url" content="https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/"><meta property="og:site_name" content="Nightingale"><meta property="article:modified_time" content="2023-08-08T12:02:49+08:00"><meta property="og:image" content="https://n9e.github.io/doks.png"><meta property="og:image:alt" content="Nightingale"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@ulricqin"><meta name=twitter:creator content="@henkverlinde"><meta name=twitter:title content="Redis Exporter"><meta name=twitter:description content><meta name=twitter:image content="https://n9e.github.io/doks.png"><meta name=twitter:image:alt content="Redis Exporter"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://n9e.github.io/#/schema/organization/1","name":"Doks","url":"https://n9e.github.io/","sameAs":["https://twitter.com/ulricqin","https://github.com/ccfos/nightingale"],"logo":{"@type":"ImageObject","@id":"https://n9e.github.io/#/schema/image/1","url":"https://n9e.github.io/logo-doks.png","width":512,"height":512,"caption":"Doks"},"image":{"@id":"https://n9e.github.io/#/schema/image/1"}},{"@type":"WebSite","@id":"https://n9e.github.io/#/schema/website/1","url":"https://n9e.github.io/","name":"Nightingale","description":"夜莺监控(官网),云原生监控,Kubernetes Monitoring,开源监控,国产监控,CCF夜莺","publisher":{"@id":"https://n9e.github.io/#/schema/organization/1"}},{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/","url":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/","name":"Redis Exporter","description":"","isPartOf":{"@id":"https://n9e.github.io/#/schema/website/1"},"about":{"@id":"https://n9e.github.io/#/schema/organization/1"},"datePublished":"0001-01-01T00:00:00CET","dateModified":"2023-08-08T12:02:49CET","breadcrumb":{"@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/#/schema/breadcrumb/1"},"primaryImageOfPage":{"@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/#/schema/image/2"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/"]}]},{"@type":"BreadcrumbList","@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/#/schema/breadcrumb/1","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://n9e.github.io/","url":"https://n9e.github.io/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/","url":"https://n9e.github.io/zh/","name":"Zh"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/","url":"https://n9e.github.io/zh/docs/","name":"Docs"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/appendix/","url":"https://n9e.github.io/zh/docs/appendix/","name":"Appendix"}},{"@type":"ListItem","position":5,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/","url":"https://n9e.github.io/zh/docs/appendix/grafana-agent/","name":"Grafana Agent"}},{"@type":"ListItem","position":6,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/","url":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/","name":"Integrations"}},{"@type":"ListItem","position":7,"item":{"@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://n9e.github.io/#/schema/article/1","headline":"Redis Exporter","description":"","isPartOf":{"@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/"},"mainEntityOfPage":{"@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/"},"datePublished":"0001-01-01T00:00:00CET","dateModified":"2023-08-08T12:02:49CET","author":{"@id":"https://n9e.github.io/#/schema/person/2"},"publisher":{"@id":"https://n9e.github.io/#/schema/organization/1"},"image":{"@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/#/schema/image/2"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://n9e.github.io/#/schema/person/2","name":"Henk Verlinde","sameAs":["https://twitter.com/henkverlinde","https://www.linkedin.com/in/henkverlinde/","https://github.com/UlricQin"]}]},{"@context":"https://schema.org","@graph":[{"@type":"ImageObject","@id":"https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/#/schema/image/2","url":"https://n9e.github.io/doks.png","contentUrl":"https://n9e.github.io/doks.png","caption":"Redis Exporter"}]}]}</script><meta name=theme-color content="#fff"><link rel=apple-touch-icon sizes=180x180 href=https://n9e.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://n9e.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://n9e.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://n9e.github.io/site.webmanifest></head><body class="docs single"><div class=header-bar></div><header class="navbar navbar-expand-md navbar-light doks-navbar"><nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation"><a class="navbar-brand p-0 me-auto" href=/zh/ aria-label=Nightingale>Nightingale</a>
+<button class="btn btn-menu d-block d-md-none order-5" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasDoks aria-controls=offcanvasDoks aria-label="Open main menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="offcanvas offcanvas-end border-0 py-md-1" tabindex=-1 id=offcanvasDoks data-bs-backdrop=true aria-labelledby=offcanvasDoksLabel><div class="header-bar d-md-none"></div><div class="offcanvas-header d-md-none"><h2 class="h5 offcanvas-title ps-2" id=offcanvasDoksLabel><a class=text-dark href=/zh/>Nightingale</a></h2><button type=button class="btn-close text-reset me-2" data-bs-dismiss=offcanvas aria-label="Close main menu"></button></div><div class="offcanvas-body px-4"><h3 class="h6 text-uppercase mb-3 d-md-none">Main</h3><ul class="nav flex-column flex-md-row ms-md-n3"><li class=nav-item><a class="nav-link ps-0 py-1" href=https://flashcat.cloud/docs/>文档</a></li></ul><hr class="text-black-50 my-4 d-md-none"><h3 class="h6 text-uppercase mb-3 d-md-none">Socials</h3><ul class="nav flex-column flex-md-row ms-md-auto me-md-n5 pe-md-2"><li class=nav-item><a class="nav-link ps-0 py-1" href=https://github.com/ccfos/nightingale><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><small class="ms-2 d-md-none">GitHub</small></a></li></ul></div></div><button id=mode class="btn btn-link order-md-1" type=button aria-label="Toggle user interface mode">
+<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span><span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button><div class="dropdown order-md-2"><button class="btn btn-doks-light dropdown-toggle" id=doks-languages data-bs-toggle=dropdown aria-expanded=false data-bs-display=static>
+ZH
+<span class=dropdown-caret><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"/></svg></span></button><ul class="dropdown-menu dropdown-menu-end shadow rounded border-0" aria-labelledby=doks-languages><li><a class="dropdown-item current" aria-current=true href=/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/>Chinese</a></li><li><hr class=dropdown-divider></li><li><a class=dropdown-item rel=alternate href=/zh/en hreflang=en lang=en>English</a></li></ul></div></nav></header><nav class="doks-subnavbar py-2 sticky-lg-top" aria-label="Secondary navigation"><div class="container-xxl d-flex align-items-md-center"><form class="doks-search position-relative flex-grow-1 me-auto"><input id=search class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off><div id=suggestions class="shadow bg-white rounded d-none"></div></form><button class="btn doks-sidebar-toggle d-lg-none ms-3 order-3 collapsed" type=button data-bs-toggle=collapse data-bs-target=#doks-docs-nav aria-controls=doks-docs-nav aria-expanded=false aria-label="Toggle documentation navigation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg></button></div></nav><div class=container-xxl><aside class=doks-sidebar><nav id=doks-docs-nav class="collapse d-lg-none" aria-label="Tertiary navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-e05dce83e5129785b9f316978a14b896 aria-expanded=false>
+简介</button><div class=collapse id=section-e05dce83e5129785b9f316978a14b896><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/introduction/>夜莺介绍</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/consulting/></a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/opensource-vs-enterprise/>企业版</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-039d392cea6b20609a2aa94015441bad aria-expanded=false>
+安装部署</button><div class=collapse id=section-039d392cea6b20609a2aa94015441bad><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/first/>开始之前</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/compose/>Docker Compose</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/helm/>Helm</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/server/>服务端组件部署</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/victoria/>VictoriaMetrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/ibex/>Ibex</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-15ad62fa6c036f6a916b4336fe04c118 aria-expanded=false>
+采集器</button><div class=collapse id=section-15ad62fa6c036f6a916b4336fe04c118><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/categraf/>Categraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/telegraf/>Telegraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/datadog-agent/>Datadog-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/grafana-agent/>Grafana-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/falcon-plugin/>Falcon-Plugin</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-32b9362149d032ed724daac36671f31a aria-expanded=false>
+使用手册</button><div class=collapse id=section-32b9362149d032ed724daac36671f31a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/share/>藏经阁</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/video/>入门教程</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/snmp/>SNMP</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/apm/>应用监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/mtail/>Mtail日志监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/esalert/>ES日志告警</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/jvm/>JVM监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/notify/>告警通知</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/format/>告警格式</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/aialert/>智能异常检测</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-db974238714ca8de634a7ce1d083a14f aria-expanded=false>
+API</button><div class=collapse id=section-db974238714ca8de634a7ce1d083a14f><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/read/>数据读取</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/push/>数据推送</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/webapi/>Webapi接口</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-2e307a62e897bd84f1fcb3f4443e46dc aria-expanded=true>
+附录</button><div class="collapse show" id=section-2e307a62e897bd84f1fcb3f4443e46dc><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-99d0251d969c569e15cd7b8de1245c49 aria-expanded=true>
+Grafana-agent</button><div class="collapse show" id=section-99d0251d969c569e15cd7b8de1245c49><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/grafana-agent-overview/>总览</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_metrics/>收集metrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_logs/>收集logs</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_traces/>收集trace</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/scrape_exporters/>收集三方exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/how-to-monitoring-k8s/>监控K8s</a></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-415320131958c70f4f250ca4d7e63bbd aria-expanded=true>
+integrations</button><div class="collapse show" id=section-415320131958c70f4f250ca4d7e63bbd><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/overview/>Overview</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/node-exporter-config/>Node Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mysqld-exporter-config/>MySQLd Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/process-exporter-config/>Process Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/cadvisor-config/>cAdvisor Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/windows-exporter-config/>Windows Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/postgres-exporter-config/>Postgres Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mongodb-exporter-config/>Mongodb Exporter</a></li><li><a class="docs-link rounded active" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/>Redis Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/memcached-exporter-config/>Memcached Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/kafka-exporter-config/>Kafka Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/elasticsearch-exporter-config/>Elasticsearch Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/consul-exporter-config/>Consul Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/dnsmasq-exporter-config/>dnsmasq Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/github-exporter-config/>Github Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/statsd-exporter-config/>Statsd Exporter</a></li></ul></div></li></ul></div></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-57825f7de0361f1c3eabf5868a125de3 aria-expanded=false>
+用户案例研究</button><div class=collapse id=section-57825f7de0361f1c3eabf5868a125de3><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/>高科技Startup构建监控体系之路</a></li></ul></div></li></ul></div></li></ul></nav></aside></div><div class="wrap container-xxl" role=document><div class=content><div class="row flex-xl-nowrap"><div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block"><nav class=docs-links aria-label="Main navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-e05dce83e5129785b9f316978a14b896 aria-expanded=false>
+简介</button><div class=collapse id=section-e05dce83e5129785b9f316978a14b896><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/introduction/>夜莺介绍</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/consulting/></a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/opensource-vs-enterprise/>企业版</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-039d392cea6b20609a2aa94015441bad aria-expanded=false>
+安装部署</button><div class=collapse id=section-039d392cea6b20609a2aa94015441bad><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/first/>开始之前</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/compose/>Docker Compose</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/helm/>Helm</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/server/>服务端组件部署</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/victoria/>VictoriaMetrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/ibex/>Ibex</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-15ad62fa6c036f6a916b4336fe04c118 aria-expanded=false>
+采集器</button><div class=collapse id=section-15ad62fa6c036f6a916b4336fe04c118><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/categraf/>Categraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/telegraf/>Telegraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/datadog-agent/>Datadog-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/grafana-agent/>Grafana-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/falcon-plugin/>Falcon-Plugin</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-32b9362149d032ed724daac36671f31a aria-expanded=false>
+使用手册</button><div class=collapse id=section-32b9362149d032ed724daac36671f31a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/share/>藏经阁</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/video/>入门教程</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/snmp/>SNMP</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/apm/>应用监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/mtail/>Mtail日志监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/esalert/>ES日志告警</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/jvm/>JVM监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/notify/>告警通知</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/format/>告警格式</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/aialert/>智能异常检测</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-db974238714ca8de634a7ce1d083a14f aria-expanded=false>
+API</button><div class=collapse id=section-db974238714ca8de634a7ce1d083a14f><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/read/>数据读取</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/push/>数据推送</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/webapi/>Webapi接口</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-2e307a62e897bd84f1fcb3f4443e46dc aria-expanded=true>
+附录</button><div class="collapse show" id=section-2e307a62e897bd84f1fcb3f4443e46dc><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-99d0251d969c569e15cd7b8de1245c49 aria-expanded=true>
+Grafana-agent</button><div class="collapse show" id=section-99d0251d969c569e15cd7b8de1245c49><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/grafana-agent-overview/>总览</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_metrics/>收集metrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_logs/>收集logs</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_traces/>收集trace</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/scrape_exporters/>收集三方exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/how-to-monitoring-k8s/>监控K8s</a></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-415320131958c70f4f250ca4d7e63bbd aria-expanded=true>
+integrations</button><div class="collapse show" id=section-415320131958c70f4f250ca4d7e63bbd><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/overview/>Overview</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/node-exporter-config/>Node Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mysqld-exporter-config/>MySQLd Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/process-exporter-config/>Process Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/cadvisor-config/>cAdvisor Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/windows-exporter-config/>Windows Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/postgres-exporter-config/>Postgres Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mongodb-exporter-config/>Mongodb Exporter</a></li><li><a class="docs-link rounded active" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/>Redis Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/memcached-exporter-config/>Memcached Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/kafka-exporter-config/>Kafka Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/elasticsearch-exporter-config/>Elasticsearch Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/consul-exporter-config/>Consul Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/dnsmasq-exporter-config/>dnsmasq Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/github-exporter-config/>Github Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/statsd-exporter-config/>Statsd Exporter</a></li></ul></div></li></ul></div></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-57825f7de0361f1c3eabf5868a125de3 aria-expanded=false>
+用户案例研究</button><div class=collapse id=section-57825f7de0361f1c3eabf5868a125de3><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/>高科技Startup构建监控体系之路</a></li></ul></div></li></ul></div></li></ul></nav></div><main class="docs-content col-lg-11 col-xl-9 mx-xl-auto"><h1>Redis Exporter</h1><p class=lead></p><p>grafana-agent内置了<a href=https://github.com/oliver006/redis_exporter><code>redis_exporter</code></a>，可以采集Redis server的运行指标。</p><p>目前grafana-agent，只支持配置一个Redis server地址，对其进行数据采集。如果您希望采集多个redis实例的metrics数据，那么需要启动多个grafana-agent实例，并通过<code>relabel_configs</code>来区分来自不同redis实例的数据。</p><h1 id=配置并启用redis_exporter>配置并启用redis_exporter <a href=#%e9%85%8d%e7%bd%ae%e5%b9%b6%e5%90%af%e7%94%a8redis_exporter class=anchor aria-hidden=true>#</a></h1><pre><code class=language-yaml>redis_exporter:
+  enabled: true
+  redis_addr: &quot;redis-2:6379&quot;
+  relabel_configs:
+  - source_labels: [__address__]
+    target_label: instance
+    replacement: redis-2
+</code></pre><p>我们强烈推荐您使用独立的账号运行grafana-agent，并做好访问redis实例的最小化授权，避免过度授权带来的安全隐患，更多可以参考<a href=https://github.com/oliver006/redis_exporter#authenticating-with-redis>official documentation</a>。</p><h1 id=采集的关键指标列表>采集的关键指标列表 <a href=#%e9%87%87%e9%9b%86%e7%9a%84%e5%85%b3%e9%94%ae%e6%8c%87%e6%a0%87%e5%88%97%e8%a1%a8 class=anchor aria-hidden=true>#</a></h1><pre><code class=language-yaml>redis_active_defrag_running: When activedefrag is enabled, this indicates whether defragmentation is currently active, and the CPU percentage it intends to utilize.
+redis_allocator_active_bytes: Total bytes in the allocator active pages, this includes external-fragmentation.
+redis_allocator_allocated_bytes: Total bytes allocated form the allocator, including internal-fragmentation. Normally the same as used_memory.
+redis_allocator_frag_bytes: Delta between allocator_active and allocator_allocated. See note about mem_fragmentation_bytes.
+redis_allocator_frag_ratio: Ratio between allocator_active and allocator_allocated. This is the true (external) fragmentation metric (not mem_fragmentation_ratio).
+redis_allocator_resident_bytes: Total bytes resident (RSS) in the allocator, this includes pages that can be released to the OS (by MEMORY PURGE, or just waiting).
+redis_allocator_rss_bytes: Delta between allocator_resident and allocator_active.
+redis_allocator_rss_ratio: Ratio between allocator_resident and allocator_active. This usually indicates pages that the allocator can and probably will soon release back to the OS.
+redis_aof_current_rewrite_duration_sec: Duration of the on-going AOF rewrite operation if any.
+redis_aof_enabled: Flag indicating AOF logging is activated.
+redis_aof_last_bgrewrite_status: Status of the last AOF rewrite operation.
+redis_aof_last_cow_size_bytes: The size in bytes of copy-on-write memory during the last AOF rewrite operation.
+redis_aof_last_rewrite_duration_sec: Duration of the last AOF rewrite operation in seconds.
+redis_aof_last_write_status: Status of the last write operation to the AOF.
+redis_aof_rewrite_in_progress: Flag indicating a AOF rewrite operation is on-going.
+redis_aof_rewrite_scheduled: Flag indicating an AOF rewrite operation will be scheduled once the on-going RDB save is complete.
+redis_blocked_clients: Number of clients pending on a blocking call (BLPOP, BRPOP, BRPOPLPUSH, BLMOVE, BZPOPMIN, BZPOPMAX).
+redis_client_recent_max_input_buffer_bytes: Biggest input buffer among current client connections.
+redis_client_recent_max_output_buffer_bytes: Biggest output buffer among current client connections.
+redis_cluster_enabled: Indicate Redis cluster is enabled.
+redis_commands_duration_seconds_total: The total CPU time consumed by these commands.(Counter)
+redis_commands_processed_total: Total number of commands processed by the server.(Counter)
+redis_commands_total: The number of calls that reached command execution (not rejected).(Counter)
+redis_config_maxclients: The value of the maxclients configuration directive. This is the upper limit for the sum of connected_clients, connected_slaves and cluster_connections.
+redis_config_maxmemory: The value of the maxmemory configuration directive.
+redis_connected_clients: Number of client connections (excluding connections from replicas).
+redis_connected_slaves: Number of connected replicas.
+redis_connections_received_total: Total number of connections accepted by the server.(Counter)
+redis_cpu_sys_children_seconds_total: System CPU consumed by the background processes.(Counter)
+redis_cpu_sys_seconds_total: System CPU consumed by the Redis server, which is the sum of system CPU consumed by all threads of the server process (main thread and background threads).(Counter)
+redis_cpu_user_children_seconds_total: User CPU consumed by the background processes.(Counter)
+redis_cpu_user_seconds_total: User CPU consumed by the Redis server, which is the sum of user CPU consumed by all threads of the server process (main thread and background threads).(Counter)
+redis_db_keys: Total number of keys by DB.
+redis_db_keys_expiring: Total number of expiring keys by DB
+redis_defrag_hits: Number of value reallocations performed by active the defragmentation process.
+redis_defrag_misses: Number of aborted value reallocations started by the active defragmentation process.
+redis_defrag_key_hits: Number of keys that were actively defragmented.
+redis_defrag_key_misses: Number of keys that were skipped by the active defragmentation process.
+redis_evicted_keys_total: Number of evicted keys due to maxmemory limit.(Counter)
+redis_expired_keys_total: Total number of key expiration events.(Counter)
+redis_expired_stale_percentage: The percentage of keys probably expired.
+redis_expired_time_cap_reached_total: The count of times that active expiry cycles have stopped early.
+redis_exporter_last_scrape_connect_time_seconds: The duration(in seconds) to connect when scrape.
+redis_exporter_last_scrape_duration_seconds: The last scrape duration.
+redis_exporter_last_scrape_error: The last scrape error status.
+redis_exporter_scrape_duration_seconds_count: Durations of scrapes by the exporter
+redis_exporter_scrape_duration_seconds_sum: Durations of scrapes by the exporter
+redis_exporter_scrapes_total: Current total redis scrapes.(Counter)
+redis_instance_info: Information about the Redis instance.
+redis_keyspace_hits_total: Hits total.(Counter)
+redis_keyspace_misses_total: Misses total.(Counter)
+redis_last_key_groups_scrape_duration_milliseconds: Duration of the last key group metrics scrape in milliseconds.
+redis_last_slow_execution_duration_seconds: The amount of time needed for last slow execution, in seconds.
+redis_latest_fork_seconds: The amount of time needed for last fork, in seconds.
+redis_lazyfree_pending_objects: The number of objects waiting to be freed (as a result of calling UNLINK, or FLUSHDB and FLUSHALL with the ASYNC option).
+redis_master_repl_offset: The server's current replication offset. 
+redis_mem_clients_normal: Memory used by normal clients.(Gauge)
+redis_mem_clients_slaves: Memory used by replica clients - Starting Redis 7.0, replica buffers share memory with the replication backlog, so this field can show 0 when replicas don't trigger an increase of memory usage.
+redis_mem_fragmentation_bytes: Delta between used_memory_rss and used_memory. Note that when the total fragmentation bytes is low (few megabytes), a high ratio (e.g. 1.5 and above) is not an indication of an issue.
+redis_mem_fragmentation_ratio: Ratio between used_memory_rss and used_memory. Note that this doesn't only includes fragmentation, but also other process overheads (see the allocator_* metrics), and also overheads like code, shared libraries, stack, etc.
+redis_mem_not_counted_for_eviction_bytes: (Gauge)
+redis_memory_max_bytes: Max memory limit in bytes.
+redis_memory_used_bytes: Total number of bytes allocated by Redis using its allocator (either standard libc, jemalloc, or an alternative allocator such as tcmalloc)
+redis_memory_used_dataset_bytes: The size in bytes of the dataset (used_memory_overhead subtracted from used_memory)
+redis_memory_used_lua_bytes: Number of bytes used by the Lua engine.
+redis_memory_used_overhead_bytes: The sum in bytes of all overheads that the server allocated for managing its internal data structures.
+redis_memory_used_peak_bytes: Peak memory consumed by Redis (in bytes)
+redis_memory_used_rss_bytes: Number of bytes that Redis allocated as seen by the operating system (a.k.a resident set size). This is the number reported by tools such as top(1) and ps(1)
+redis_memory_used_scripts_bytes: Number of bytes used by cached Lua scripts
+redis_memory_used_startup_bytes: Initial amount of memory consumed by Redis at startup in bytes
+redis_migrate_cached_sockets_total: The number of sockets open for MIGRATE purposes
+redis_net_input_bytes_total: Total input bytes(Counter)
+redis_net_output_bytes_total: Total output bytes(Counter)
+redis_process_id: Process ID
+redis_pubsub_channels: Global number of pub/sub channels with client subscriptions
+redis_pubsub_patterns: Global number of pub/sub pattern with client subscriptions
+redis_rdb_bgsave_in_progress: Flag indicating a RDB save is on-going
+redis_rdb_changes_since_last_save: Number of changes since the last dump
+redis_rdb_current_bgsave_duration_sec: Duration of the on-going RDB save operation if any
+redis_rdb_last_bgsave_duration_sec: Duration of the last RDB save operation in seconds
+redis_rdb_last_bgsave_status: Status of the last RDB save operation
+redis_rdb_last_cow_size_bytes: The size in bytes of copy-on-write memory during the last RDB save operation
+redis_rdb_last_save_timestamp_seconds: Epoch-based timestamp of last successful RDB save
+redis_rejected_connections_total: Number of connections rejected because of maxclients limit(Counter)
+redis_repl_backlog_first_byte_offset: The master offset of the replication backlog buffer
+redis_repl_backlog_history_bytes: Size in bytes of the data in the replication backlog buffer
+redis_repl_backlog_is_active: Flag indicating replication backlog is active
+redis_replica_partial_resync_accepted: The number of accepted partial resync requests(Gauge)
+redis_replica_partial_resync_denied: The number of denied partial resync requests(Gauge)
+redis_replica_resyncs_full: The number of full resyncs with replicas
+redis_replication_backlog_bytes: Memory used by replication backlog
+redis_second_repl_offset: The offset up to which replication IDs are accepted.
+redis_slave_expires_tracked_keys: The number of keys tracked for expiry purposes (applicable only to writable replicas)(Gauge)
+redis_slowlog_last_id: Last id of slowlog
+redis_slowlog_length: Total slowlog
+redis_start_time_seconds: Start time of the Redis instance since unix epoch in seconds.
+redis_target_scrape_request_errors_total: Errors in requests to the exporter
+redis_up: Flag indicating redis instance is up
+redis_uptime_in_seconds: Number of seconds since Redis server start
+</code></pre><h1 id=完整地配置项说明>完整地配置项说明 <a href=#%e5%ae%8c%e6%95%b4%e5%9c%b0%e9%85%8d%e7%bd%ae%e9%a1%b9%e8%af%b4%e6%98%8e class=anchor aria-hidden=true>#</a></h1><pre><code class=language-yaml>  # Enables the redis_exporter integration, allowing the Agent to automatically
+  # collect system metrics from the configured redis address
+  [enabled: &lt;boolean&gt; | default = false]
+
+  # Sets an explicit value for the instance label when the integration is
+  # self-scraped. Overrides inferred values.
+  #
+  # The default value for this integration is inferred from the hostname
+  # portion of redis_addr.
+  [instance: &lt;string&gt;]
+
+  # Automatically collect metrics from this integration. If disabled,
+  # the redis_exporter integration will be run but not scraped and thus not
+  # remote-written. Metrics for the integration will be exposed at
+  # /integrations/redis_exporter/metrics and can be scraped by an external
+  # process.
+  [scrape_integration: &lt;boolean&gt; | default = &lt;integrations_config.scrape_integrations&gt;]
+
+  # How often should the metrics be collected? Defaults to
+  # prometheus.global.scrape_interval.
+  [scrape_interval: &lt;duration&gt; | default = &lt;global_config.scrape_interval&gt;]
+
+  # The timeout before considering the scrape a failure. Defaults to
+  # prometheus.global.scrape_timeout.
+  [scrape_timeout: &lt;duration&gt; | default = &lt;global_config.scrape_timeout&gt;]
+
+  # Allows for relabeling labels on the target.
+  relabel_configs:
+    [- &lt;relabel_config&gt; ... ]
+
+  # Relabel metrics coming from the integration, allowing to drop series
+  # from the integration that you don't care about.
+  metric_relabel_configs:
+    [ - &lt;relabel_config&gt; ... ]
+
+  # How frequent to truncate the WAL for this integration.
+  [wal_truncate_frequency: &lt;duration&gt; | default = &quot;60m&quot;]
+
+  # Monitor the exporter itself and include those metrics in the results.
+  [include_exporter_metrics: &lt;bool&gt; | default = false]
+
+  # exporter-specific configuration options
+
+  # Address of the redis instance.
+  redis_addr: &lt;string&gt;
+
+  # User name to use for authentication (Redis ACL for Redis 6.0 and newer).
+  [redis_user: &lt;string&gt;]
+
+  # Password of the redis instance.
+  [redis_password: &lt;string&gt;]
+
+  # Path of a file containing a passord. If this is defined, it takes precedece
+  # over redis_password.
+  [redis_password_file: &lt;string&gt;]
+
+  # Namespace for the metrics.
+  [namespace: &lt;string&gt; | default = &quot;redis&quot;]
+
+  # What to use for the CONFIG command.
+  [config_command: &lt;string&gt; | default = &quot;CONFIG&quot;]
+
+  # Comma separated list of key-patterns to export value and length/size, searched for with SCAN.
+  [check_keys: &lt;string&gt;]
+
+  # Comma separated list of LUA regex for grouping keys. When unset, no key
+  # groups will be made.
+  [check_key_groups: &lt;string&gt;]
+
+  # Check key or key groups batch size hint for the underlying SCAN. Keeping the same name for backwards compatibility, but this applies to both key and key groups batch size configuration.
+  [check_key_groups_batch_size: &lt;int&gt; | default = 10000]
+
+  # The maximum number of distinct key groups with the most memory utilization
+  # to present as distinct metrics per database. The leftover key groups will be
+  # aggregated in the 'overflow' bucket.
+  [max_distinct_key_groups: &lt;int&gt; | default = 100]
+
+  # Comma separated list of single keys to export value and length/size.
+  [check_single_keys: &lt;string&gt;]
+
+  # Comma separated list of stream-patterns to export info about streams, groups and consumers, searched for with SCAN.
+  [check_streams: &lt;string&gt;]
+
+  # Comma separated list of single streams to export info about streams, groups and consumers.
+  [check_single_streams: &lt;string&gt;]
+
+  # Comma separated list of individual keys to export counts for.
+  [count_keys: &lt;string&gt;]
+
+  # Path to Lua Redis script for collecting extra metrics.
+  [script_path: &lt;string&gt;]
+
+  # Timeout for connection to Redis instance (in Golang duration format).
+  [connection_timeout: &lt;time.Duration&gt; | default = &quot;15s&quot;]
+
+  # Name of the client key file (including full path) if the server requires TLS client authentication.
+  [tls_client_key_file: &lt;string&gt;]
+
+  # Name of the client certificate file (including full path) if the server requires TLS client authentication.
+  [tls_client_cert_file: &lt;string&gt;]
+
+  # Name of the CA certificate file (including full path) if the server requires TLS client authentication.
+  [tls_ca_cert_file: &lt;string&gt;]
+
+  # Whether to set client name to redis_exporter.
+  [set_client_name: &lt;bool&gt;]
+
+  # Whether to scrape Tile38 specific metrics.
+  [is_tile38: &lt;bool&gt;]
+
+  # Whether to scrape Client List specific metrics.
+  [export_client_list: &lt;bool&gt;]
+
+  # Whether to include the client's port when exporting the client list. Note
+  # that including this will increase the cardinality of all redis metrics.
+  [export_client_port: &lt;bool&gt;]
+
+  # Whether to also export go runtime metrics.
+  [redis_metrics_only: &lt;bool&gt;]
+
+  # Whether to ping the redis instance after connecting.
+  [ping_on_connect: &lt;bool&gt;]
+
+  # Whether to include system metrics like e.g. redis_total_system_memory_bytes.
+  [incl_system_metrics: &lt;bool&gt;]
+
+  # Whether to to skip TLS verification.
+  [skip_tls_verification: &lt;bool&gt;]
+</code></pre><div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between"><div class=edit-page><a href=https://github.com/n9e/n9e.github.io/blob/master/content/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></div></div><div class="docs-navigation d-flex justify-content-between"><a href=/zh/docs/appendix/grafana-agent/integrations/mongodb-exporter-config/><div class="card my-1"><div class="card-body py-2">&larr; Mongodb Exporter</div></div></a><a class=ms-auto href=/zh/docs/appendix/grafana-agent/integrations/memcached-exporter-config/><div class="card my-1"><div class="card-body py-2">Memcached Exporter &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container-xxl><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>&copy; 2022 CCF·Nightingale, all rights reserved.</li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=/js/bootstrap.min.0a0106334435d4110713bfaff4acaf02533b0c56d44412a74e9518db07672ddb7e099a9c7517bc9cb529e2ddd4ae2e438b40b720288900d5e74fb6d8928d9097.js integrity="sha512-CgEGM0Q11BEHE7+v9KyvAlM7DFbURBKnTpUY2wdnLdt+CZqcdRe8nLUp4t3Uri5Di0C3ICiJANXnT7bYko2Qlw==" crossorigin=anonymous defer></script>
+<script src=/js/highlight.min.0d31f7af12feb83ee633b6351b023ee643ea3412376fbaa09c5a26d1a5ef999939f1ad379a5b12e1199a2c7d72ae1b23f633060a679628dcbfb0e72378cd20be.js integrity="sha512-DTH3rxL+uD7mM7Y1GwI+5kPqNBI3b7qgnFom0aXvmZk58a03mlsS4RmaLH1yrhsj9jMGCmeWKNy/sOcjeM0gvg==" crossorigin=anonymous defer></script>
+<script src=/main.min.6afc4bf655f45ae3e63629ec95be8bd2e0e792084b5635a6fe70b169fa9d1491638b3a4e900ed59c2e017ca18768e5c392e110d0e1336509f49f7dc418d16eef.js integrity="sha512-avxL9lX0WuPmNinslb6L0uDnkghLVjWm/nCxafqdFJFjizpOkA7VnC4BfKGHaOXDkuEQ0OEzZQn0n33EGNFu7w==" crossorigin=anonymous defer></script>
+<script src=https://n9e.github.io/index.min.df4825e9925d8664e899c485320367763e5ad4da75f6aa42f4b123c9471e3d4fe8eabb623b724a0d32f967272c534801b902e473009b0a2e1c2b47f53c7a4b74.js integrity="sha512-30gl6ZJdhmTomcSFMgNndj5a1Np19qpC9LEjyUcePU/o6rtiO3JKDTL5ZycsU0gBuQLkcwCbCi4cK0f1PHpLdA==" crossorigin=anonymous defer></script>
+<script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?9d7cc507a7aae60b28b5e04bb995492a",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script></body></html>

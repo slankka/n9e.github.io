@@ -1,0 +1,480 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-500.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://n9e.github.io/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><link rel=stylesheet href=https://n9e.github.io/main.ac11ddb4c05d63d9306a2e99fe8ab3a89c059bd13af027151f267942e6ea1a6d4242aacd51b034166a296b7833f683a4395206df505071159d1835d8158732b5.css integrity="sha512-rBHdtMBdY9kwai6Z/oqzqJwFm9E68CcVHyZ5QubqGm1CQqrNUbA0Fmopa3gz9oOkOVIG31BQcRWdGDXYFYcytQ==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><meta name=robots content="index, follow"><meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><title>高科技Startup构建监控体系之路 - 夜莺云原生监控</title><meta name=description content="夜莺监控集成Grafana、Loki、Prometheus"><link rel=canonical href=https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/><meta property="og:locale" content="en_US"><meta property="og:type" content="article"><meta property="og:title" content="高科技Startup构建监控体系之路"><meta property="og:description" content="夜莺监控集成Grafana、Loki、Prometheus"><meta property="og:url" content="https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/"><meta property="og:site_name" content="Nightingale"><meta property="article:published_time" content="2020-10-06T08:48:45+00:00"><meta property="article:modified_time" content="2023-08-08T12:02:49+08:00"><meta property="og:image" content="https://n9e.github.io/doks.png"><meta property="og:image:alt" content="Nightingale"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@ulricqin"><meta name=twitter:creator content="@henkverlinde"><meta name=twitter:title content="高科技Startup构建监控体系之路"><meta name=twitter:description content="夜莺监控集成Grafana、Loki、Prometheus"><meta name=twitter:image content="https://n9e.github.io/doks.png"><meta name=twitter:image:alt content="高科技Startup构建监控体系之路"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://n9e.github.io/#/schema/organization/1","name":"Doks","url":"https://n9e.github.io/","sameAs":["https://twitter.com/ulricqin","https://github.com/ccfos/nightingale"],"logo":{"@type":"ImageObject","@id":"https://n9e.github.io/#/schema/image/1","url":"https://n9e.github.io/logo-doks.png","width":512,"height":512,"caption":"Doks"},"image":{"@id":"https://n9e.github.io/#/schema/image/1"}},{"@type":"WebSite","@id":"https://n9e.github.io/#/schema/website/1","url":"https://n9e.github.io/","name":"Nightingale","description":"夜莺监控(官网),云原生监控,Kubernetes Monitoring,开源监控,国产监控,CCF夜莺","publisher":{"@id":"https://n9e.github.io/#/schema/organization/1"}},{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/","url":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/","name":"高科技Startup构建监控体系之路","description":"夜莺监控集成Grafana、Loki、Prometheus","isPartOf":{"@id":"https://n9e.github.io/#/schema/website/1"},"about":{"@id":"https://n9e.github.io/#/schema/organization/1"},"datePublished":"2020-10-06T08:48:45CET","dateModified":"2023-08-08T12:02:49CET","breadcrumb":{"@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/#/schema/breadcrumb/1"},"primaryImageOfPage":{"@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/#/schema/image/2"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/"]}]},{"@type":"BreadcrumbList","@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/#/schema/breadcrumb/1","name":"Breadcrumbs","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://n9e.github.io/","url":"https://n9e.github.io/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/","url":"https://n9e.github.io/zh/","name":"Zh"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/","url":"https://n9e.github.io/zh/docs/","name":"Docs"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/appendix/","url":"https://n9e.github.io/zh/docs/appendix/","name":"Appendix"}},{"@type":"ListItem","position":5,"item":{"@type":"WebPage","@id":"https://n9e.github.io/zh/docs/appendix/usecase/","url":"https://n9e.github.io/zh/docs/appendix/usecase/","name":"Usecase"}},{"@type":"ListItem","position":6,"item":{"@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://n9e.github.io/#/schema/article/1","headline":"高科技Startup构建监控体系之路","description":"夜莺监控集成Grafana、Loki、Prometheus","isPartOf":{"@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/"},"mainEntityOfPage":{"@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/"},"datePublished":"2020-10-06T08:48:45CET","dateModified":"2023-08-08T12:02:49CET","author":{"@id":"https://n9e.github.io/#/schema/person/2"},"publisher":{"@id":"https://n9e.github.io/#/schema/organization/1"},"image":{"@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/#/schema/image/2"}}]},{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://n9e.github.io/#/schema/person/2","name":"Henk Verlinde","sameAs":["https://twitter.com/henkverlinde","https://www.linkedin.com/in/henkverlinde/","https://github.com/UlricQin"]}]},{"@context":"https://schema.org","@graph":[{"@type":"ImageObject","@id":"https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/#/schema/image/2","url":"https://n9e.github.io/doks.png","contentUrl":"https://n9e.github.io/doks.png","caption":"高科技Startup构建监控体系之路"}]}]}</script><meta name=theme-color content="#fff"><link rel=apple-touch-icon sizes=180x180 href=https://n9e.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://n9e.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://n9e.github.io/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://n9e.github.io/site.webmanifest></head><body class="docs single"><div class=header-bar></div><header class="navbar navbar-expand-md navbar-light doks-navbar"><nav class="container-xxl flex-wrap flex-md-nowrap" aria-label="Main navigation"><a class="navbar-brand p-0 me-auto" href=/zh/ aria-label=Nightingale>Nightingale</a>
+<button class="btn btn-menu d-block d-md-none order-5" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasDoks aria-controls=offcanvasDoks aria-label="Open main menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="offcanvas offcanvas-end border-0 py-md-1" tabindex=-1 id=offcanvasDoks data-bs-backdrop=true aria-labelledby=offcanvasDoksLabel><div class="header-bar d-md-none"></div><div class="offcanvas-header d-md-none"><h2 class="h5 offcanvas-title ps-2" id=offcanvasDoksLabel><a class=text-dark href=/zh/>Nightingale</a></h2><button type=button class="btn-close text-reset me-2" data-bs-dismiss=offcanvas aria-label="Close main menu"></button></div><div class="offcanvas-body px-4"><h3 class="h6 text-uppercase mb-3 d-md-none">Main</h3><ul class="nav flex-column flex-md-row ms-md-n3"><li class=nav-item><a class="nav-link ps-0 py-1" href=https://flashcat.cloud/docs/>文档</a></li></ul><hr class="text-black-50 my-4 d-md-none"><h3 class="h6 text-uppercase mb-3 d-md-none">Socials</h3><ul class="nav flex-column flex-md-row ms-md-auto me-md-n5 pe-md-2"><li class=nav-item><a class="nav-link ps-0 py-1" href=https://github.com/ccfos/nightingale><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><small class="ms-2 d-md-none">GitHub</small></a></li></ul></div></div><button id=mode class="btn btn-link order-md-1" type=button aria-label="Toggle user interface mode">
+<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span><span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button><div class="dropdown order-md-2"><button class="btn btn-doks-light dropdown-toggle" id=doks-languages data-bs-toggle=dropdown aria-expanded=false data-bs-display=static>
+ZH
+<span class=dropdown-caret><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"/></svg></span></button><ul class="dropdown-menu dropdown-menu-end shadow rounded border-0" aria-labelledby=doks-languages><li><a class="dropdown-item current" aria-current=true href=/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/>Chinese</a></li><li><hr class=dropdown-divider></li><li><a class=dropdown-item rel=alternate href=/zh/en hreflang=en lang=en>English</a></li></ul></div></nav></header><nav class="doks-subnavbar py-2 sticky-lg-top" aria-label="Secondary navigation"><div class="container-xxl d-flex align-items-md-center"><form class="doks-search position-relative flex-grow-1 me-auto"><input id=search class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off><div id=suggestions class="shadow bg-white rounded d-none"></div></form><button class="btn doks-sidebar-toggle d-lg-none ms-3 order-3 collapsed" type=button data-bs-toggle=collapse data-bs-target=#doks-docs-nav aria-controls=doks-docs-nav aria-expanded=false aria-label="Toggle documentation navigation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-expand" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks doks-collapse" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg></button></div></nav><div class=container-xxl><aside class=doks-sidebar><nav id=doks-docs-nav class="collapse d-lg-none" aria-label="Tertiary navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-e05dce83e5129785b9f316978a14b896 aria-expanded=false>
+简介</button><div class=collapse id=section-e05dce83e5129785b9f316978a14b896><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/introduction/>夜莺介绍</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/consulting/></a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/opensource-vs-enterprise/>企业版</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-039d392cea6b20609a2aa94015441bad aria-expanded=false>
+安装部署</button><div class=collapse id=section-039d392cea6b20609a2aa94015441bad><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/first/>开始之前</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/compose/>Docker Compose</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/helm/>Helm</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/server/>服务端组件部署</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/victoria/>VictoriaMetrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/ibex/>Ibex</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-15ad62fa6c036f6a916b4336fe04c118 aria-expanded=false>
+采集器</button><div class=collapse id=section-15ad62fa6c036f6a916b4336fe04c118><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/categraf/>Categraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/telegraf/>Telegraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/datadog-agent/>Datadog-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/grafana-agent/>Grafana-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/falcon-plugin/>Falcon-Plugin</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-32b9362149d032ed724daac36671f31a aria-expanded=false>
+使用手册</button><div class=collapse id=section-32b9362149d032ed724daac36671f31a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/share/>藏经阁</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/video/>入门教程</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/snmp/>SNMP</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/apm/>应用监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/mtail/>Mtail日志监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/esalert/>ES日志告警</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/jvm/>JVM监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/notify/>告警通知</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/format/>告警格式</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/aialert/>智能异常检测</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-db974238714ca8de634a7ce1d083a14f aria-expanded=false>
+API</button><div class=collapse id=section-db974238714ca8de634a7ce1d083a14f><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/read/>数据读取</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/push/>数据推送</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/webapi/>Webapi接口</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-2e307a62e897bd84f1fcb3f4443e46dc aria-expanded=true>
+附录</button><div class="collapse show" id=section-2e307a62e897bd84f1fcb3f4443e46dc><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-99d0251d969c569e15cd7b8de1245c49 aria-expanded=false>
+Grafana-agent</button><div class=collapse id=section-99d0251d969c569e15cd7b8de1245c49><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/grafana-agent-overview/>总览</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_metrics/>收集metrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_logs/>收集logs</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_traces/>收集trace</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/scrape_exporters/>收集三方exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/how-to-monitoring-k8s/>监控K8s</a></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-415320131958c70f4f250ca4d7e63bbd aria-expanded=false>
+integrations</button><div class=collapse id=section-415320131958c70f4f250ca4d7e63bbd><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/overview/>Overview</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/node-exporter-config/>Node Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mysqld-exporter-config/>MySQLd Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/process-exporter-config/>Process Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/cadvisor-config/>cAdvisor Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/windows-exporter-config/>Windows Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/postgres-exporter-config/>Postgres Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mongodb-exporter-config/>Mongodb Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/>Redis Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/memcached-exporter-config/>Memcached Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/kafka-exporter-config/>Kafka Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/elasticsearch-exporter-config/>Elasticsearch Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/consul-exporter-config/>Consul Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/dnsmasq-exporter-config/>dnsmasq Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/github-exporter-config/>Github Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/statsd-exporter-config/>Statsd Exporter</a></li></ul></div></li></ul></div></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-57825f7de0361f1c3eabf5868a125de3 aria-expanded=true>
+用户案例研究</button><div class="collapse show" id=section-57825f7de0361f1c3eabf5868a125de3><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded active" href=https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/>高科技Startup构建监控体系之路</a></li></ul></div></li></ul></div></li></ul></nav></aside></div><div class="wrap container-xxl" role=document><div class=content><div class="row flex-xl-nowrap"><div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block"><nav class=docs-links aria-label="Main navigation"><ul class="list-unstyled collapsible-sidebar"><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-e05dce83e5129785b9f316978a14b896 aria-expanded=false>
+简介</button><div class=collapse id=section-e05dce83e5129785b9f316978a14b896><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/introduction/>夜莺介绍</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/consulting/></a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/prologue/opensource-vs-enterprise/>企业版</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-039d392cea6b20609a2aa94015441bad aria-expanded=false>
+安装部署</button><div class=collapse id=section-039d392cea6b20609a2aa94015441bad><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/first/>开始之前</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/compose/>Docker Compose</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/helm/>Helm</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/server/>服务端组件部署</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/victoria/>VictoriaMetrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/install/ibex/>Ibex</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-15ad62fa6c036f6a916b4336fe04c118 aria-expanded=false>
+采集器</button><div class=collapse id=section-15ad62fa6c036f6a916b4336fe04c118><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/categraf/>Categraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/telegraf/>Telegraf</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/datadog-agent/>Datadog-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/grafana-agent/>Grafana-Agent</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/agent/falcon-plugin/>Falcon-Plugin</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-32b9362149d032ed724daac36671f31a aria-expanded=false>
+使用手册</button><div class=collapse id=section-32b9362149d032ed724daac36671f31a><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/share/>藏经阁</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/video/>入门教程</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/snmp/>SNMP</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/apm/>应用监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/mtail/>Mtail日志监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/esalert/>ES日志告警</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/jvm/>JVM监控</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/notify/>告警通知</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/format/>告警格式</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/usage/aialert/>智能异常检测</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-db974238714ca8de634a7ce1d083a14f aria-expanded=false>
+API</button><div class=collapse id=section-db974238714ca8de634a7ce1d083a14f><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/read/>数据读取</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/push/>数据推送</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/api/webapi/>Webapi接口</a></li></ul></div></li><li class=mb-1><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-2e307a62e897bd84f1fcb3f4443e46dc aria-expanded=true>
+附录</button><div class="collapse show" id=section-2e307a62e897bd84f1fcb3f4443e46dc><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-99d0251d969c569e15cd7b8de1245c49 aria-expanded=false>
+Grafana-agent</button><div class=collapse id=section-99d0251d969c569e15cd7b8de1245c49><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/grafana-agent-overview/>总览</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_metrics/>收集metrics</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_logs/>收集logs</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/k8s_traces/>收集trace</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/scrape_exporters/>收集三方exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/how-to-monitoring-k8s/>监控K8s</a></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-415320131958c70f4f250ca4d7e63bbd aria-expanded=false>
+integrations</button><div class=collapse id=section-415320131958c70f4f250ca4d7e63bbd><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/overview/>Overview</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/node-exporter-config/>Node Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mysqld-exporter-config/>MySQLd Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/process-exporter-config/>Process Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/cadvisor-config/>cAdvisor Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/windows-exporter-config/>Windows Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/postgres-exporter-config/>Postgres Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/mongodb-exporter-config/>Mongodb Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/redis-exporter-config/>Redis Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/memcached-exporter-config/>Memcached Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/kafka-exporter-config/>Kafka Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/elasticsearch-exporter-config/>Elasticsearch Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/consul-exporter-config/>Consul Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/dnsmasq-exporter-config/>dnsmasq Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/github-exporter-config/>Github Exporter</a></li><li><a class="docs-link rounded" href=https://n9e.github.io/zh/docs/appendix/grafana-agent/integrations/statsd-exporter-config/>Statsd Exporter</a></li></ul></div></li></ul></div></li><li class="my-1 ms-3"><button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle=collapse data-bs-target=#section-57825f7de0361f1c3eabf5868a125de3 aria-expanded=true>
+用户案例研究</button><div class="collapse show" id=section-57825f7de0361f1c3eabf5868a125de3><ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small"><li><a class="docs-link rounded active" href=https://n9e.github.io/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system/>高科技Startup构建监控体系之路</a></li></ul></div></li></ul></div></li></ul></nav></div><main class="docs-content col-lg-11 col-xl-9 mx-xl-auto"><h1>高科技Startup构建监控体系之路</h1><p class=lead></p><ul><li><a href=#%E5%89%8D%E8%A8%80>前言</a></li><li><a href=#%E7%9B%91%E6%8E%A7%E6%90%AD%E5%BB%BA>监控搭建</a><ul><li><a href=#%E5%A4%9C%E8%8E%BA%E6%90%AD%E5%BB%BA>夜莺搭建</a></li><li><a href=#%E4%B8%BB%E6%9C%BA%E7%9B%91%E6%8E%A7%E5%AE%89%E8%A3%85>主机监控安装</a></li><li><a href=#blackbox-exporter>BlackBox Exporter</a></li><li><a href=#mysqld-exporter>Mysqld Exporter</a></li><li><a href=#consul--consul-template-%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E9%85%8D%E7%BD%AE>consul + consul-template 动态生成配置</a><ul><li><a href=#%E5%AE%89%E8%A3%85-consul>安装 Consul</a></li><li><a href=#%E5%AE%89%E8%A3%85consul-template>安装Consul-template</a></li><li><a href=#%E9%85%8D%E7%BD%AEconsul-kv-%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90url%E7%9B%91%E6%8E%A7>配置Consul K/V 动态生成URL监控</a></li></ul></li><li><a href=#%E4%BF%AE%E6%94%B9promtheus%E9%85%8D%E7%BD%AE>修改Promtheus配置</a></li></ul></li><li><a href=#%E6%97%A5%E5%BF%97%E7%9B%91%E6%8E%A7%E6%90%AD%E5%BB%BA>日志监控搭建</a></li><li><a href=#%E5%91%8A%E8%AD%A6%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE>告警规则配置</a><ul><li><a href=#%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4>系统运维</a><ul><li><a href=#cpu%E5%88%A9%E7%94%A8%E7%8E%87--90>CPU利用率 > 90</a></li><li><a href=#innode-%E5%88%A9%E7%94%A8%E7%8E%8790>Innode 利用率>90</a></li><li><a href=#sshd-%E6%9C%8D%E5%8A%A1%E6%8C%82%E4%BA%86>sshd 服务挂了</a></li><li><a href=#%E5%86%85%E5%AD%98%E5%88%A9%E7%94%A8%E7%8E%87--95>内存利用率 > 95</a></li><li><a href=#%E6%96%87%E4%BB%B6%E5%8F%A5%E6%9F%84--90>文件句柄 > 90</a></li><li><a href=#io-wait--30>IO wait > 30%</a></li><li><a href=#%E8%BF%87%E5%8E%BB%E4%B8%80%E5%88%86%E9%92%9Fioutil--80>过去一分钟IOutil > 80</a></li><li><a href=#ping--1s>Ping > 1s</a></li><li><a href=#%E5%B9%B3%E5%9D%87%E8%B4%9F%E8%BD%BD2>平均负载>2</a></li><li><a href=#tcp%E9%87%8D%E4%BC%A0%E7%8E%875>TCP重传率>5%</a></li><li><a href=#%E7%A3%81%E7%9B%98%E5%88%A9%E7%94%A8%E7%8E%87--85>磁盘利用率 > 85%</a></li><li><a href=#%E8%8A%82%E7%82%B9%E9%87%8D%E5%90%AF>节点重启</a></li></ul></li><li><a href=#%E4%B8%9A%E5%8A%A1%E8%BF%90%E7%BB%B4>业务运维</a><ul><li><a href=#%E4%B8%80%E5%88%86%E9%92%9F%E5%86%85%E6%97%A5%E5%BF%97error10>一分钟内日志ERROR>10</a></li><li><a href=#url%E6%8E%A2%E6%B5%8B%E4%B8%8D%E9%80%9A>URL探测不通</a></li><li><a href=#%E8%BF%87%E5%8E%BB%E4%B8%80%E5%88%86%E9%92%9F%E5%87%BA%E7%8E%B0panic>过去一分钟出现Panic</a></li></ul></li><li><a href=#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%90%E7%BB%B4>数据库运维</a><ul><li><a href=#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8D%E5%90%AF>数据库重启</a></li><li><a href=#%E8%BF%9E%E6%8E%A5%E6%95%B0%E8%B6%85%E8%BF%8780>连接数超过80%</a></li><li><a href=#%E6%9C%80%E8%BF%91%E4%B8%80%E5%88%86%E9%92%9F%E6%9C%89%E6%85%A2%E6%9F%A5%E8%AF%A2>最近一分钟有慢查询</a></li></ul></li></ul></li></ul><blockquote><p><a href=https://www.lccomputing.com/>贝联珠贯科技</a>, 一家ToB科技公司，定位于帮助客户大幅提升利用率，从而显著降低IT机器投入。</p></blockquote><h2 id=前言>前言 <a href=#%e5%89%8d%e8%a8%80 class=anchor aria-hidden=true>#</a></h2><p>公司当前机器总数100台左右, 没有监控, 总是在机器挂了才知道. 业务问题也只能依靠测试报障. 因为内部涉及多个K8s集群. 每个环境有独立的监控,日志收集系统, 所以需要一个<code>All IN ONE</code>的运维监控系统.</p><p>尝试过<code>Grafana</code>+ <code>Mimir</code> + <code>Loki</code>的方式.二次开发成本过大, 并且短期内不能有效告警. 遂放弃. 接着尝试<code>夜莺V5</code>.</p><p>通过夜莺监控，免去了我们对告警通知的开发成本, 传统的 Grafana 或者 Alertmanager, 都需要二次对接自己的IM. 而夜莺支持了业务组或者部门的功能, 我们就可以利用这些功能做到告警细化, 并不需要再次对接IM平台. 并且有着更详细、易用的告警配置. 可以做到开箱即用, 学习成本近乎为零。</p><p>以下是实践过程，会从<code>系统运维</code>,<code>业务运维</code>,<code>数据库运维</code>等几个方面来进行监控系统搭建.</p><h2 id=监控搭建>监控搭建 <a href=#%e7%9b%91%e6%8e%a7%e6%90%ad%e5%bb%ba class=anchor aria-hidden=true>#</a></h2><h3 id=夜莺搭建>夜莺搭建 <a href=#%e5%a4%9c%e8%8e%ba%e6%90%ad%e5%bb%ba class=anchor aria-hidden=true>#</a></h3><blockquote><p><a href=https://github.com/ccfos/nightingale>https://github.com/ccfos/nightingale</a></p></blockquote><p>这里选用最简单的<code>Docker Compose</code> 方式创建夜莺. 正如文档所说如果不是Docker专家, 不建议以这样的形式创建.<figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_20x0_resize_box_3.png data-srcset="https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_500x0_resize_box_3.png 500w" width=1488 height=260 alt=夜莺文档><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615104159_1089991697170221038_huf9a49444770e68f16080e59408d6f20c_0_500x0_resize_box_3.png 500w" src=https://n9e.github.io/20220615104159_1089991697170221038.png width=1488 height=260 alt=夜莺文档></noscript></figure></p><p>启动命令如下所示.</p><pre><code class=language-powershell>git clone https://gitlink.org.cn/ccfos/nightingale.git
+cd nightingale/docker
+docker compose up -d
+</code></pre><p>服务启动之后，浏览器访问nwebapi的端口，即18000，默认用户是<code>root</code>，密码是<code>root.2020</code></p><h3 id=主机监控安装>主机监控安装 <a href=#%e4%b8%bb%e6%9c%ba%e7%9b%91%e6%8e%a7%e5%ae%89%e8%a3%85 class=anchor aria-hidden=true>#</a></h3><p>这里的主机监控agent 选用的<code>grafana-agent</code>, <code>grafana-agent</code> 集成了绝大部分会使用到的<code>exporter</code>, 做到了All IN ONE.<br>并且支持Push 模式,简化流程, 这样在流程上只需要在主机启动时,预装<code>grafana-agent</code>, 由<code>grafana-agent</code>主动Push 到中心即可.</p><p>安装脚本如下所示:</p><blockquote><p>这个脚本有如下几个注意点:</p><ol><li><p><code>remote_write</code> 地址要根据自己部署夜莺的地址修改,将x.x.x.x更换为自己的IP即可</p></li><li><p><code>$_hostip</code>: 这个建议写为主机IP, 因为对运维来说IP才是最直观的数据</p></li></ol></blockquote><pre><code class=language-powershell>function InstallMonitor(){
+  [ ! -f /usr/local/bin/grafana-agent  ] &amp;&amp; wget -O /usr/local/bin/grafana-agent https://lcc-init.oss-cn-hangzhou-internal.aliyuncs.com/grafana-agent
+  chmod +x /usr/local/bin/grafana-agent
+  mkdir -p /metrics  /etc/grafana-agent
+  cat &gt;/etc/systemd/system/grafana-agent.service &lt;&lt;EOF
+[Unit]
+Description=&quot;grafana-agent&quot;
+After=network.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/local/bin/grafana-agent -config.file /etc/grafana-agent/grafana-agent.yml
+WorkingDirectory=/usr/local/bin
+
+SuccessExitStatus=0
+LimitNOFILE=65536
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=grafana-agent
+KillMode=process
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+  chmod 0644 /etc/systemd/system/grafana-agent.service
+  cat &gt;/etc/grafana-agent/grafana-agent.yml &lt;&lt;EOF
+server:
+  log_level: info
+  http_listen_port: 12345
+
+metrics:
+  wal_directory: /metrics
+
+  global:
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    remote_write:
+      # 远程写入的地址需要根据云上云下环境来切换.
+      - url: http://x.x.x.x:19000/prometheus/v1/write
+integrations:
+  agent:
+    enabled: true
+  node_exporter:
+    enabled: true
+    instance: &quot;$_hostip&quot;
+    include_exporter_metrics: true
+  process_exporter:
+    enabled: true
+    instance: &quot;$_hostip&quot;
+    process_names:
+    - name: &quot;{{.Comm}}&quot;
+      cmdline:
+      - '.+'
+EOF
+  systemctl daemon-reload
+  systemctl enable --now grafana-agent
+}
+</code></pre><h3 id=blackbox-exporter>BlackBox Exporter <a href=#blackbox-exporter class=anchor aria-hidden=true>#</a></h3><blockquote><p>下载地址: <a href=https://github.com/prometheus/blackbox_exporter/releases>https://github.com/prometheus/blackbox_exporter/releases</a></p></blockquote><p>下载二进制文件并解压到<code>/usr/local/bin/</code></p><p>安装脚本如下:</p><pre><code class=language-powershell>function InstallBlackboxExporter(){
+  cat &gt;/etc/systemd/system/blackbox_exporter.service &lt;&lt;EOF
+[Unit]
+Description=&quot;blackbox_exporter&quot;
+After=network.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/local/bin/blackbox_exporter --config.file=/etc/blackbox-exporter/blackbox.yml
+
+WorkingDirectory=/usr/local/bin
+
+
+SuccessExitStatus=0
+LimitNOFILE=65536
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=blackbox_exporter
+KillMode=process
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
+EOF
+  chmod 0644 /etc/systemd/system/blackbox_exporter.service
+  cat &gt;/etc/blackbox-exporter/blackbox.yml &lt;&lt;EOF
+modules:
+  http_2xx:
+    prober: http
+  http_post_2xx:
+    prober: http
+    http:
+      method: POST
+  tcp_connect:
+    prober: tcp
+  pop3s_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - expect: &quot;^+OK&quot;
+      tls: true
+      tls_config:
+        insecure_skip_verify: false
+  grpc:
+    prober: grpc
+    grpc:
+      tls: true
+      preferred_ip_protocol: &quot;ip4&quot;
+  grpc_plain:
+    prober: grpc
+    grpc:
+      tls: false
+      service: &quot;service1&quot;
+  ssh_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - expect: &quot;^SSH-2.0-&quot;
+      - send: &quot;SSH-2.0-blackbox-ssh-check&quot;
+  irc_banner:
+    prober: tcp
+    tcp:
+      query_response:
+      - send: &quot;NICK prober&quot;
+      - send: &quot;USER prober prober prober :prober&quot;
+      - expect: &quot;PING :([^ ]+)&quot;
+        send: &quot;PONG ${1}&quot;
+      - expect: &quot;^:[^ ]+ 001&quot;
+  icmp:
+    prober: icmp
+EOF
+  systemctl daemon-reload
+  systemctl enable --now blackbox_exporter
+}
+</code></pre><h3 id=mysqld-exporter>Mysqld Exporter <a href=#mysqld-exporter class=anchor aria-hidden=true>#</a></h3><blockquote><p>下载地址: <a href=https://github.com/prometheus/mysqld_exporter>https://github.com/prometheus/mysqld_exporter</a></p></blockquote><p>下载二进制文件并解压到<code>/usr/local/bin/</code></p><p>需要监听的数据库执行如下SQL:</p><blockquote><p>xxxxx替换为你设定的密码</p></blockquote><pre><code class=language-SQL>create user 'exporter'@'%' identified by 'xxxxx';
+GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'%'  WITH MAX_USER_CONNECTIONS 3;
+flush privileges;
+
+</code></pre><p>安装脚本如下:</p><blockquote><p><code>mysqld_exporter.cnf</code>: 中密码账户为上面执行SQL创建的用户密码.</p></blockquote><pre><code class=language-powershell>function InstallMysqldExporter(){
+  cat &gt;/etc/systemd/system/mysqld_exporter.service &lt;&lt;EOF
+[Unit]
+Description=&quot;mysqld_exporter&quot;
+After=network.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/local/bin/mysqld_exporter --config.my-cnf=/etc/mysqld_exporter.cnf --collect.auto_increment.columns --collect.binlog_size --collect.global_status --collect.global_variables --collect.info_schema.innodb_metrics --collect.info_schema.innodb_cmp --collect.info_schema.innodb_cmpmem --collect.info_schema.processlist --collect.info_schema.query_response_time --collect.info_schema.tables --collect.info_schema.tablestats --collect.info_schema.userstats --collect.perf_schema.eventswaits --collect.perf_schema.file_events --collect.perf_schema.indexiowaits --collect.perf_schema.tableiowaits --collect.perf_schema.tablelocks --collect.slave_status
+
+WorkingDirectory=/usr/local/bin
+
+
+SuccessExitStatus=0
+LimitNOFILE=65536
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=mysqld_exporter
+KillMode=process
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
+EOF
+  chmod 0644 /etc/systemd/system/mysqld_exporter.service
+  cat &gt;/etc/mysqld_exporter.cnf &lt;&lt;EOF
+[client]
+user=exporter
+password=xxxx
+host=x.x.x.x
+port=3306
+EOF
+  systemctl daemon-reload
+  systemctl enable --now mysqld_exporter
+}
+</code></pre><h3 id=consul--consul-template-动态生成配置>consul + consul-template 动态生成配置 <a href=#consul--consul-template-%e5%8a%a8%e6%80%81%e7%94%9f%e6%88%90%e9%85%8d%e7%bd%ae class=anchor aria-hidden=true>#</a></h3><h4 id=安装-consul>安装 Consul <a href=#%e5%ae%89%e8%a3%85-consul class=anchor aria-hidden=true>#</a></h4><blockquote><p><code>-bind</code> 和 <code>-client</code> 需要替换为本机IP</p></blockquote><pre><code class=language-powershell>function InstallConsul(){
+  yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+  yum -y install consul 
+  mkdir -p /data/consul
+  cat &gt;/etc/systemd/system/consul.service &lt;&lt;EOF
+[Unit]
+Description=&quot;consul&quot;
+After=network.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/bin/consul agent -server -bootstrap-expect 1 -bind=x.x.x.x -client=x.x.x.x -data-dir=/data/consul -node=agent-one -config-dir=/etc/consul.d -ui
+
+WorkingDirectory=/usr/bin/
+
+
+SuccessExitStatus=0
+LimitNOFILE=65536
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=consul
+KillMode=process
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
+EOF
+  chmod 0644 /etc/systemd/system/consul.service
+  systemctl daemon-reload
+  systemctl enable --now consul
+}
+</code></pre><h4 id=安装consul-template>安装Consul-template <a href=#%e5%ae%89%e8%a3%85consul-template class=anchor aria-hidden=true>#</a></h4><p>安装脚本如下所示:</p><blockquote><p><code>x.x.x.x</code> 替换为夜莺地址 , <code>a.b.c.d</code> 替换为consul部署地址</p></blockquote><pre><code class=language-powershell>wget https://releases.hashicorp.com/consul-template/0.29.0/consul-template_0.29.0_linux_amd64.zip
+unzip consul-template_0.29.0_linux_amd64.zip
+chmod +x consul-template
+mv consul-template /usr/local/bin/consul-template
+mkdir -p /etc/consul-template/template
+cat &gt; /etc/consul-template/consul-template.conf &lt;&lt; EOF
+log_level = &quot;warn&quot;
+syslog {
+  # This enables syslog logging.
+  enabled = true
+  # This is the name of the syslog facility to log to.
+  facility = &quot;LOCAL5&quot;
+}
+consul {
+  # auth {
+    # enabled = true
+    # username = &quot;test&quot;
+  # password = &quot;test&quot;
+  # }
+  # 注意替换为consul地址
+  address = &quot;a.b.c.d:8500&quot;
+  retry {
+    enabled = true
+    attempts = 12
+    backoff = &quot;250ms&quot;
+    # If max_backoff is set to 10s and backoff is set to 1s, sleep times
+    # would be: 1s, 2s, 4s, 8s, 10s, 10s, ...
+    max_backoff = &quot;3m&quot;
+  }
+}
+template {
+  source = &quot;/etc/consul-template/templates/url-monitor.ctmpl&quot;
+  destination = &quot;/home/nightingale-main/docker/prometc/conf.d/url/url.yaml&quot;
+  command = &quot;curl -X POST http://x.x.x.x:9090/-/reload&quot;
+  command_timeout = &quot;60s&quot;
+  backup = true
+  wait {
+    min = &quot;2s&quot;
+    max = &quot;20s&quot;
+  }
+}
+template {
+  source = &quot;/etc/consul-template/templates/icmp-monitor.ctmpl&quot;
+  destination = &quot;/home/nightingale-main/docker/prometc/conf.d/icmp/icmp.yaml&quot;
+  command = &quot;&quot;
+  command_timeout = &quot;60s&quot;
+  backup = true
+  wait {
+    min = &quot;2s&quot;
+    max = &quot;20s&quot;
+  }
+}
+EOF
+
+cat &gt; /etc/consul-template/consul-template.conf/template/url-monitor.ctmpl &lt;&lt;EOF
+- targets:
+{{- range ls  &quot;blackbox/url/http200&quot; }}
+  - http://{{ .Key  }}{{ .Value }}
+{{- end }}
+EOF
+
+cat &gt; /etc/consul-template/consul-template.conf/template/icmp-monitor.ctmpl &lt;&lt;EOF
+{{- range ls  &quot;blackbox/icmp&quot; }}
+- targets:
+  - {{ .Key  }}
+  labels:
+    instance: {{ .Key }}
+{{- end }}
+EOF
+
+
+
+cat &gt; /etc/systemd/system/consul-template.service &lt;&lt;EOF
+[Unit]
+Description=&quot;consul-template&quot;
+After=network.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/local/bin/consul-template -config /etc/consul-template/consul-template.conf
+
+WorkingDirectory=/usr/local/bin
+
+
+SuccessExitStatus=0
+LimitNOFILE=65536
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=consul-template
+KillMode=process
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl enable --now consul-template.service
+</code></pre><h4 id=配置consul-kv-动态生成url监控>配置Consul K/V 动态生成URL监控 <a href=#%e9%85%8d%e7%bd%aeconsul-kv-%e5%8a%a8%e6%80%81%e7%94%9f%e6%88%90url%e7%9b%91%e6%8e%a7 class=anchor aria-hidden=true>#</a></h4><p>添加如下<code>K/V</code>,<code>K/V</code> 对应上文<code>*.ctmpl</code> 文件中渲染地址. 在这里<code>Key</code> 为域名,<code>Values</code> 为路径<figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_20x0_resize_box_3.png data-srcset="https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_500x0_resize_box_3.png 500w" width=1594 height=966 alt=Conusl配置><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615113931_5383410019052358235_hu2d8f02eeb71989d661fd43d24926a26e_0_500x0_resize_box_3.png 500w" src=https://n9e.github.io/20220615113931_5383410019052358235.png width=1594 height=966 alt=Conusl配置></noscript></figure></p><h3 id=修改promtheus配置>修改Promtheus配置 <a href=#%e4%bf%ae%e6%94%b9promtheus%e9%85%8d%e7%bd%ae class=anchor aria-hidden=true>#</a></h3><p><code>nightingale-main/docker/prometc/prometheus.yml</code>追加如下内容:</p><pre><code class=language-yaml>  - job_name: MySQL
+    static_configs:
+    - targets:
+      - x.x.x.x:9104
+      labels:
+        instance: MySQL-dev
+  - job_name: process
+    static_configs:
+    - targets:
+      - x.x.x.x:9256
+  - job_name: 'blackbox-url-monitor'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]  # Look for a HTTP 200 response.
+    file_sd_configs:
+    - refresh_interval: 1m
+      files:
+        - ./conf.d/url/*.yaml
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: x.x.x.x:9115
+  - job_name: 'blackbox-icmp-monitor'
+    scrape_interval: 1m
+    metrics_path: /probe
+    params:
+      module: [icmp]
+    file_sd_configs:
+    - refresh_interval: 1m
+      files:
+        - ./conf.d/icmp/*.yaml
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - target_label: __address__
+        replacement: x.x.x.x:9115
+</code></pre><p>在<code>nightingale-main/docker/prometc/</code> 下创建目录<code>conf.d</code>. 命令如下:</p><pre><code class=language-powershell>cd nightingale-main/docker/prometc/ 
+mkdir -p conf.d/{icmp,url}
+</code></pre><p>重启promtheus,命令如下所示:</p><pre><code class=language-powershell>docker restart prometheus
+</code></pre><p>重启后检查prometheus状态<figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_20x0_resize_box_3.png data-srcset="https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_500x0_resize_box_3.png 500w" width=2052 height=840 alt=promtheus状态><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615115009_6109041308956072695_hu4f228c85f98b02decac6f7766647b90a_0_500x0_resize_box_3.png 500w" src=https://n9e.github.io/20220615115009_6109041308956072695.png width=2052 height=840 alt=promtheus状态></noscript></figure></p><h2 id=日志监控搭建>日志监控搭建 <a href=#%e6%97%a5%e5%bf%97%e7%9b%91%e6%8e%a7%e6%90%ad%e5%bb%ba class=anchor aria-hidden=true>#</a></h2><blockquote><p>感谢夜莺社区支持.</p><ol><li>大前提, 夜莺版本高于5.9.2</li><li>已有Loki. 并且Loki已经支持多租户.</li></ol></blockquote><p>Loki的配置在这里不做赘述,网上教程太多了.</p><p><code>docker-compose.yml</code> 追加如下内容, 与<code>nserver</code> 同级</p><pre><code class=language-yaml>  lokinserver:
+    image: registry.cn-hangzhou.aliyuncs.com/lcc-middleware/nightingale:5.9.2
+    container_name: lokinserver
+    hostname: nserver
+    restart: always
+    environment:
+      GIN_MODE: release
+      TZ: Asia/Shanghai
+      WAIT_HOSTS: mysql:3306, redis:6379
+    volumes:
+      - ./lokin9eetc:/app/etc
+    ports:
+      - &quot;20000:20000&quot;
+    networks:
+      - nightingale
+    depends_on:
+      - mysql
+      - redis
+      - prometheus
+      - ibex
+    links:
+      - mysql:mysql
+      - redis:redis
+      - prometheus:prometheus
+      - ibex:ibex
+    command: &gt;
+      sh -c &quot;/wait &amp;&amp; /app/n9e server&quot;
+</code></pre><p>生成<code>lokinserver</code>容器的配置文件.操作如下.</p><pre><code class=language-powershell>cp -r n9eetc lokin9eetc
+cd lokin9eetc
+</code></pre><p>修改<code>lokin9eetc/server.conf</code>文件中<code>Reader</code>字段,内容如下:</p><blockquote><p>如果开启多租户记得传<code>Headers</code>, 如果没开,则去除<code>Headers</code>字段
+Loki的API中带<code>loki</code>前缀的都是兼容<code>prometheus</code>风格的API 所以一定要加. <code>Prom</code>字段替换为自己的域名</p></blockquote><pre><code class=language-toml>[Reader]
+# prometheus base url
+Url = &quot;http://loki.xxx.xxx/loki/&quot;
+# Basic auth username
+BasicAuthUser = &quot;&quot;
+# Basic auth password
+BasicAuthPass = &quot;&quot;
+# timeout settings, unit: ms
+Timeout = 30000
+DialTimeout = 10000
+TLSHandshakeTimeout = 30000
+ExpectContinueTimeout = 1000
+IdleConnTimeout = 90000
+# time duration, unit: ms
+KeepAlive = 30000
+MaxConnsPerHost = 0
+MaxIdleConns = 100
+MaxIdleConnsPerHost = 10
+Headers = [&quot;X-Scope-OrgID&quot;,&quot;lcc-loki&quot;]
+</code></pre><p>修改配置文件<code>nightingale-main/docker/n9eetc/webapi.conf</code>, 追加如下内容</p><blockquote><p>如果开启多租户记得传<code>Headers</code>, 如果没开,则去除<code>Headers</code>字段
+Loki的API中带<code>loki</code>前缀的都是兼容<code>prometheus</code>风格的API 所以一定要加. <code>Prom</code>字段替换为自己的域名</p></blockquote><pre><code class=language-toml>[[Clusters]]
+# Prometheus cluster name
+Name = &quot;Loki&quot;
+# # Prometheus APIs base url
+Prom = &quot;http://loki.xxx.xxx/loki/&quot;
+# # Basic auth username
+BasicAuthUser = &quot;&quot;
+# Basic auth password
+BasicAuthPass = &quot;&quot;
+# timeout settings, unit: ms
+Timeout = 30000
+DialTimeout = 10000
+TLSHandshakeTimeout = 30000
+ExpectContinueTimeout = 1000
+IdleConnTimeout = 90000
+# time duration, unit: ms
+KeepAlive = 30000
+MaxConnsPerHost = 0
+MaxIdleConns = 100
+MaxIdleConnsPerHost = 100
+Headers = [&quot;X-Scope-OrgID&quot;,&quot;lcc-loki&quot;]
+</code></pre><p>重启夜莺监控:</p><pre><code class=language-powershell>docker-compose up -d
+</code></pre><h2 id=告警规则配置>告警规则配置 <a href=#%e5%91%8a%e8%ad%a6%e8%a7%84%e5%88%99%e9%85%8d%e7%bd%ae class=anchor aria-hidden=true>#</a></h2><h3 id=系统运维>系统运维 <a href=#%e7%b3%bb%e7%bb%9f%e8%bf%90%e7%bb%b4 class=anchor aria-hidden=true>#</a></h3><h4 id=cpu利用率--90>CPU利用率 > 90 <a href=#cpu%e5%88%a9%e7%94%a8%e7%8e%87--90 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(100-(avg by (mode, instance)(rate(node_cpu_seconds_total{mode=&quot;idle&quot;}[1m])))*100) &gt; 90
+</code></pre><h4 id=innode-利用率90>Innode 利用率>90 <a href=#innode-%e5%88%a9%e7%94%a8%e7%8e%8790 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(100 - ((node_filesystem_files_free * 100) / node_filesystem_files))&gt;90
+</code></pre><h4 id=sshd-服务挂了>sshd 服务挂了 <a href=#sshd-%e6%9c%8d%e5%8a%a1%e6%8c%82%e4%ba%86 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(namedprocess_namegroup_num_procs{groupname=&quot;sshd&quot;}) == 0
+</code></pre><h4 id=内存利用率--95>内存利用率 > 95 <a href=#%e5%86%85%e5%ad%98%e5%88%a9%e7%94%a8%e7%8e%87--95 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(node_memory_MemTotal_bytes - node_memory_MemFree_bytes - (node_memory_Cached_bytes + node_memory_Buffers_bytes))/node_memory_MemTotal_bytes*100 &gt; 95
+</code></pre><h4 id=文件句柄--90>文件句柄 > 90 <a href=#%e6%96%87%e4%bb%b6%e5%8f%a5%e6%9f%84--90 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(node_filefd_allocated{}/node_filefd_maximum{}*100)
+</code></pre><h4 id=io-wait--30>IO wait > 30% <a href=#io-wait--30 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>avg by (instance) (rate(node_cpu_seconds_total{mode=&quot;iowait&quot;}[5m])) * 100 &gt; 30
+</code></pre><h4 id=过去一分钟ioutil--80>过去一分钟IOutil > 80 <a href=#%e8%bf%87%e5%8e%bb%e4%b8%80%e5%88%86%e9%92%9fioutil--80 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(rate(node_disk_io_time_seconds_total{} [1m]) *100) &gt; 80
+</code></pre><h4 id=ping--1s>Ping > 1s <a href=#ping--1s class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>avg_over_time(probe_icmp_duration_seconds[1m]) &gt; 1
+</code></pre><h4 id=平均负载2>平均负载>2 <a href=#%e5%b9%b3%e5%9d%87%e8%b4%9f%e8%bd%bd2 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(avg(node_load1) by(instance)/count by (instance)(node_cpu_seconds_total{mode='idle'})) &gt;2 
+</code></pre><h4 id=tcp重传率5>TCP重传率>5% <a href=#tcp%e9%87%8d%e4%bc%a0%e7%8e%875 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(rate(node_netstat_Tcp_RetransSegs{}[5m])/ rate(node_netstat_Tcp_OutSegs{}[5m])*100)  &gt; 5 
+</code></pre><h4 id=磁盘利用率--85>磁盘利用率 > 85% <a href=#%e7%a3%81%e7%9b%98%e5%88%a9%e7%94%a8%e7%8e%87--85 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>(100 - ((node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes) ) &gt; 85
+</code></pre><h4 id=节点重启>节点重启 <a href=#%e8%8a%82%e7%82%b9%e9%87%8d%e5%90%af class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>node_reboot_required &gt; 0
+</code></pre><h3 id=业务运维>业务运维 <a href=#%e4%b8%9a%e5%8a%a1%e8%bf%90%e7%bb%b4 class=anchor aria-hidden=true>#</a></h3><blockquote><p>我们是GO应用,其他应用根据需要设定</p></blockquote><h4 id=一分钟内日志error10>一分钟内日志ERROR>10 <a href=#%e4%b8%80%e5%88%86%e9%92%9f%e5%86%85%e6%97%a5%e5%bf%97error10 class=anchor aria-hidden=true>#</a></h4><blockquote><p>日志这里主要选,我们上面添加的Loki集群</p></blockquote><p><figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_20x0_resize_box_3.png data-srcset="https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_500x0_resize_box_3.png 500w" width=2624 height=1186 alt=error日志><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615124307_6426876117823037926_huf1ffc4a4d69d2490d57145459fd4968b_0_500x0_resize_box_3.png 500w" src=https://n9e.github.io/20220615124307_6426876117823037926.png width=2624 height=1186 alt=error日志></noscript></figure></p><h4 id=url探测不通>URL探测不通 <a href=#url%e6%8e%a2%e6%b5%8b%e4%b8%8d%e9%80%9a class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>probe_http_status_code &lt;= 199 OR probe_http_status_code &gt;= 400
+</code></pre><h4 id=过去一分钟出现panic>过去一分钟出现Panic <a href=#%e8%bf%87%e5%8e%bb%e4%b8%80%e5%88%86%e9%92%9f%e5%87%ba%e7%8e%b0panic class=anchor aria-hidden=true>#</a></h4><p><figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_20x0_resize_box_3.png data-srcset="https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_500x0_resize_box_3.png 500w" width=2644 height=1138 alt=Panic日志><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615124533_14860068110189879734_hua99091a0a623d6534efaeb9ddae43ccd_0_500x0_resize_box_3.png 500w" src=https://n9e.github.io/20220615124533_14860068110189879734.png width=2644 height=1138 alt=Panic日志></noscript></figure></p><h3 id=数据库运维>数据库运维 <a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e8%bf%90%e7%bb%b4 class=anchor aria-hidden=true>#</a></h3><blockquote><p>仅罗列部分, 更多可以在导入规则中查找</p></blockquote><p><figure class=figure><img class="figure-img img-fluid lazyload blur-up" data-sizes=auto src=https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_20x0_resize_box_3.png data-srcset="https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_500x0_resize_box_3.png 500w" width=1202 height=1090 alt=mysql规则><noscript><img class="figure-img img-fluid" sizes=100vw srcset="https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_900x0_resize_box_3.png 900w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_800x0_resize_box_3.png 800w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_700x0_resize_box_3.png 700w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_600x0_resize_box_3.png 600w,https://n9e.github.io/20220615124907_13070284466020592817_huc3406f3ee57eefa9ed978e3752346ec9_0_500x0_resize_box_3.png 500w" src=https://n9e.github.io/20220615124907_13070284466020592817.png width=1202 height=1090 alt=mysql规则></noscript></figure></p><h4 id=数据库重启>数据库重启 <a href=#%e6%95%b0%e6%8d%ae%e5%ba%93%e9%87%8d%e5%90%af class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>mysql_global_status_uptime &lt; 60
+</code></pre><h4 id=连接数超过80>连接数超过80% <a href=#%e8%bf%9e%e6%8e%a5%e6%95%b0%e8%b6%85%e8%bf%8780 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>avg by (instance) (mysql_global_status_threads_connected) / avg by (instance) (mysql_global_variables_max_connections) * 100 &gt; 80`
+</code></pre><h4 id=最近一分钟有慢查询>最近一分钟有慢查询 <a href=#%e6%9c%80%e8%bf%91%e4%b8%80%e5%88%86%e9%92%9f%e6%9c%89%e6%85%a2%e6%9f%a5%e8%af%a2 class=anchor aria-hidden=true>#</a></h4><pre><code class=language-PromQL>increase(mysql_global_status_slow_queries[1m]) &gt; 0
+</code></pre><div class="page-footer-meta d-flex flex-column flex-md-row justify-content-between"><div class=edit-page><a href=https://github.com/n9e/n9e.github.io/blob/master/content/zh/docs/appendix/usecase/a-startup-way-to-building-monitoring-system.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></div></div><div class="docs-navigation d-flex justify-content-between"><a href=/zh/docs/api/webapi/><div class="card my-1"><div class="card-body py-2">&larr; Webapi接口</div></div></a><a class=ms-auto href=/zh/docs/appendix/grafana-agent/grafana-agent-overview/><div class="card my-1"><div class="card-body py-2">总览 &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container-xxl><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>&copy; 2022 CCF·Nightingale, all rights reserved.</li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=/js/bootstrap.min.0a0106334435d4110713bfaff4acaf02533b0c56d44412a74e9518db07672ddb7e099a9c7517bc9cb529e2ddd4ae2e438b40b720288900d5e74fb6d8928d9097.js integrity="sha512-CgEGM0Q11BEHE7+v9KyvAlM7DFbURBKnTpUY2wdnLdt+CZqcdRe8nLUp4t3Uri5Di0C3ICiJANXnT7bYko2Qlw==" crossorigin=anonymous defer></script>
+<script src=/js/highlight.min.0d31f7af12feb83ee633b6351b023ee643ea3412376fbaa09c5a26d1a5ef999939f1ad379a5b12e1199a2c7d72ae1b23f633060a679628dcbfb0e72378cd20be.js integrity="sha512-DTH3rxL+uD7mM7Y1GwI+5kPqNBI3b7qgnFom0aXvmZk58a03mlsS4RmaLH1yrhsj9jMGCmeWKNy/sOcjeM0gvg==" crossorigin=anonymous defer></script>
+<script src=/main.min.6afc4bf655f45ae3e63629ec95be8bd2e0e792084b5635a6fe70b169fa9d1491638b3a4e900ed59c2e017ca18768e5c392e110d0e1336509f49f7dc418d16eef.js integrity="sha512-avxL9lX0WuPmNinslb6L0uDnkghLVjWm/nCxafqdFJFjizpOkA7VnC4BfKGHaOXDkuEQ0OEzZQn0n33EGNFu7w==" crossorigin=anonymous defer></script>
+<script src=https://n9e.github.io/index.min.df4825e9925d8664e899c485320367763e5ad4da75f6aa42f4b123c9471e3d4fe8eabb623b724a0d32f967272c534801b902e473009b0a2e1c2b47f53c7a4b74.js integrity="sha512-30gl6ZJdhmTomcSFMgNndj5a1Np19qpC9LEjyUcePU/o6rtiO3JKDTL5ZycsU0gBuQLkcwCbCi4cK0f1PHpLdA==" crossorigin=anonymous defer></script>
+<script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?9d7cc507a7aae60b28b5e04bb995492a",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script></body></html>
