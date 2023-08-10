@@ -15,31 +15,31 @@ toc: true
 
 We can add Prometheus, VictoriaMetrics, Thanos, ElasticSearch, Loki, etc. as data sources.
 
-![20230808175053](https://download.flashcat.cloud/ulric/20230808175053.png)
+![](datasource-adding.png)
 
 ## Query metrics
 
 Go to the exploration page to query metrics. If data can be queried, it indicates that the data source configuration is correct.
 
-![20230808180807](https://download.flashcat.cloud/ulric/20230808180807.png)
+![](metrics-explorer.png)
 
 ## Add alerting rules
 
 Want to add alerting rules? Go to the alerting page to add alerting rules.
 
-![20230808183035](https://download.flashcat.cloud/ulric/20230808183035.png)
+![](alerting-rule-adding.png)
 
 ## Query events
 
 If everything is normal, an alarm event will be generated shortly. Go to the active event page to view the alarm event.
 
-![20230808183335](https://download.flashcat.cloud/ulric/20230808183335.png)
+![](query-active-events.png)
 
 ## Using Notification Media
 
 Nightingale supports Slack, mm, Dingtalk, Wecom, etc. as notification media. 
 
-![20230808191451](https://download.flashcat.cloud/ulric/20230808191451.png)
+![](notify-media.png)
 
 You can perform the test by following these steps:
 

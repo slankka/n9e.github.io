@@ -35,7 +35,7 @@ Then start Categraf and you're done.
 
 Menu location: `Infrastructure` -> `Host`. You'll see the host list under `All hosts`.
 
-![20230810104717](https://download.flashcat.cloud/ulric/20230810104717.png)
+![](hosts.png)
 
 ## Check Host Metrics
 
@@ -49,9 +49,10 @@ Menu location: `Dashboard` -> `Built-in`. You can clone `Linux Host by Categraf`
 
 Menu location: `Monitors` -> `Built-in`. You can clone all the rules under Linux Category to `Default busi group` then alarm will be triggered if any rule is violated.
 
-![20230810105514](https://download.flashcat.cloud/ulric/20230810105514.png)
+![](built-in-rules.png)
 
 Screenshot of the Active alarms page:
 
-![20230810105802](https://download.flashcat.cloud/ulric/20230810105802.png)
+![](active-events-cards.png)
+
 
