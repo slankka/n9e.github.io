@@ -35,7 +35,7 @@ Then start Categraf and you're done.
 
 Menu location: `Infrastructure` -> `Host`. You'll see the host list under `All hosts`.
 
-![](hosts.png)
+<img src="/images/usage/hosts.png" />
 
 ## Check Host Metrics
 
@@ -49,10 +49,12 @@ Menu location: `Dashboard` -> `Built-in`. You can clone `Linux Host by Categraf`
 
 Menu location: `Monitors` -> `Built-in`. You can clone all the rules under Linux Category to `Default busi group` then alarm will be triggered if any rule is violated.
 
-![](built-in-rules.png)
+<img src="/images/usage/built-in-rules.png" />
+<br />
+<br />
 
 Screenshot of the Active alarms page:
 
-![](active-events-cards.png)
+<img src="/images/usage/active-events-cards.png" />
 
 

@@ -15,31 +15,33 @@ toc: true
 
 We can add Prometheus, VictoriaMetrics, Thanos, ElasticSearch, Loki, etc. as data sources.
 
-![](datasource-adding.png)
+<img src="/images/usage/datasource-adding.png" />
 
 ## Query metrics
 
 Go to the exploration page to query metrics. If data can be queried, it indicates that the data source configuration is correct.
 
-![](metrics-explorer.png)
+<img src="/images/usage/metrics-explorer.png" />
 
 ## Add alerting rules
 
 Want to add alerting rules? Go to the alerting page to add alerting rules.
 
-![](alerting-rule-adding.png)
+<img src="/images/usage/alerting-rule-adding.png" />
 
 ## Query events
 
 If everything is normal, an alarm event will be generated shortly. Go to the active event page to view the alarm event.
 
-![](query-active-events.png)
+<img src="/images/usage/query-active-events.png" />
 
 ## Using Notification Media
 
 Nightingale supports Slack, mm, Dingtalk, Wecom, etc. as notification media. 
 
-![](notify-media.png)
+<img src="/images/usage/notify-media.png" />
+<br>
+<br>
 
 You can perform the test by following these steps:
 
