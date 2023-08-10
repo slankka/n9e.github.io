@@ -54,3 +54,4 @@ Menu location: `Monitors` -> `Built-in`. You can clone all the rules under Linux
 Screenshot of the Active alarms page:
 
 ![20230810105802](https://download.flashcat.cloud/ulric/20230810105802.png)
+
