@@ -29,7 +29,7 @@ cd /opt/n9e
 mysql -uroot -p1234 < n9e.sql
 
 # check configurations in /opt/n9e/etc/config.toml
-ohup ./n9e &> n9e.log &
+nohup ./n9e &> n9e.log &
 ```
 
 ## Check Process
