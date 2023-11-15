@@ -16,7 +16,7 @@ toc: true
 
 ```bash
 $ git clone https://gitlink.org.cn/ccfos/nightingale.git
-$ cd nightingale/docker
+$ cd nightingale/docker/compose-bridge
 
 $ docker-compose up -d
 Creating network "docker_nightingale" with driver "bridge"
