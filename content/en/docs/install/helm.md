@@ -13,6 +13,6 @@ weight: 620
 toc: true
 ---
 
-[https://github.com/flashcatcloud/n9e-helm](https://github.com/flashcatcloud/n9e-helm)
+You can use the [n9e helm chart](https://github.com/flashcatcloud/n9e-helm) to run n9e in K8s cluster.
 
-The default username is root and default password is `root.2020`.
+The default n9e username is `root` and password is `root.2020`.

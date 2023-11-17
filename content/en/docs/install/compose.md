@@ -15,7 +15,7 @@ toc: true
 
 
 ```bash
-$ git clone https://gitlink.org.cn/ccfos/nightingale.git
+$ git clone https://github.com/ccfos/nightingale.git
 $ cd nightingale/docker/compose-bridge
 
 $ docker-compose up -d
@@ -39,7 +39,7 @@ prometheus          prom/prometheus                    "/bin/prometheus --c…" 
 redis               redis:6.2                          "docker-entrypoint.s…"   redis               2 days ago          Up 2 days
 ```
 
-Use your browser to access Nightingale's web page at [http://localhost:17000](http://localhost:17000). The default username is root and default password is `root.2020`.
+Use your browser to access Nightingale's web page at [http://localhost:17000](http://localhost:17000). The default username is `root` and default password is `root.2020`.
 
 
 

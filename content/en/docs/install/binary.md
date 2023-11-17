@@ -15,31 +15,30 @@ toc: true
 
 ## Download
 
-Download the latest release from [Github](https://github.com/ccfos/nightingale/releases)
+Download the latest release from [GitHub](https://github.com/ccfos/nightingale/releases), then you will get a tarball which name is like `n9e-{version}-linux-amd64.tar.gz`
 
 ## Install
 
 ```bash
 #!/bin/bash
-mkdir /opt/n9e && tar zxvf n9e-v6.0.1-linux-amd64.tar.gz -C /opt/n9e
+mkdir /opt/n9e && tar zxvf n9e-{version}-linux-amd64.tar.gz -C /opt/n9e
 
 cd /opt/n9e
 
 # init database
 mysql -uroot -p1234 < n9e.sql
 
-# check configurations in /opt/n9e/etc/config.toml
+# check configurations in /opt/n9e/etc/config.toml and start n9e
 nohup ./n9e &> n9e.log &
 ```
 
 ## Check Process
 
 ```bash
+# check process is runing or not
 ss -tlnp|grep 17000
 ```
 
 ## Login
 
-[http://localhost:17000](http://localhost:17000)。Default username is root and default password is `root.2020`.
-
-
+Open web browser and go to [http://localhost:17000](http://localhost:17000). The default username is `root` and default password is `root.2020`.
